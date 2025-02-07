@@ -1,0 +1,6 @@
+@HallBookingAPI_HostAddress = http://localhost:5137
+
+GET {{HallBookingAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

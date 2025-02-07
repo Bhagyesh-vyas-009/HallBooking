@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "PaMlU19d8tNeldDeiq2jmMRUrHFYcIqD4AVIN4w1HOs=",
+  "Source": "HallBookingAPI",
+  "BasePath": "_content/HallBookingAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
