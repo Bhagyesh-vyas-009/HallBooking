@@ -1,26 +1,17 @@
-<<<<<<< HEAD
-﻿namespace HallBookingAPI.Models
-=======
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace HallBookingAPI.Models
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 {
     public class ResourceImageModel
     {
         public int ImageID { get; set; }
         public int ResourceID { get; set; }
-<<<<<<< HEAD
-=======
         public string? ResourceName { get; set; }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public string ImageURL { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
-<<<<<<< HEAD
-=======
 
     public class ResourceImageModelValidator : AbstractValidator<ResourceImageModel>
     {
@@ -37,5 +28,4 @@ namespace HallBookingAPI.Models
 
         }
     }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 }

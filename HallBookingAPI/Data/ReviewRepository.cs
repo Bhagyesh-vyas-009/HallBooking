@@ -44,8 +44,6 @@ namespace HallBookingAPI.Data
             return reviews;
         }
 
-<<<<<<< HEAD
-=======
         public IEnumerable<ReviewModel> GetAllReviewByResourceID(int ResourceID)
         {
             List<ReviewModel> reviews = new List<ReviewModel>();
@@ -111,7 +109,6 @@ namespace HallBookingAPI.Data
             return reviews;
         }
 
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public ReviewModel SelectReviewByPK(int ReviewID)
         {
             ReviewModel review = null;

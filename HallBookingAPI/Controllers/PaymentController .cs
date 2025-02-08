@@ -24,11 +24,7 @@ namespace HallBookingAPI.Controllers
 
 
 
-<<<<<<< HEAD
-        [HttpGet("{PaymentID}")]
-=======
         [HttpGet("GetBy/{PaymentID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult GetPaymentByID(int PaymentID)
         {
             PaymentModel payment = _paymentRepository.SelectPaymentByPK(PaymentID);
@@ -37,9 +33,6 @@ namespace HallBookingAPI.Controllers
             return Ok(payment);
         }
 
-<<<<<<< HEAD
-        [HttpDelete("{PaymentID}")]
-=======
         [HttpGet("Booking/{BookingID}")]
         public IActionResult GetPaymentByBookingID(int BookingID)
         {
@@ -59,7 +52,6 @@ namespace HallBookingAPI.Controllers
         }
 
         [HttpDelete("Delete/{PaymentID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult DeletePayment(int PaymentID)
         {
             var isDeleted = _paymentRepository.DeletePayment(PaymentID);
@@ -68,11 +60,7 @@ namespace HallBookingAPI.Controllers
             return NoContent();
         }
 
-<<<<<<< HEAD
-        [HttpPost]
-=======
         [HttpPost("Add")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult PaymentInsert([FromBody] PaymentModel payment)
         {
             var isInserted = _paymentRepository.InsertPayment(payment);
@@ -83,11 +71,7 @@ namespace HallBookingAPI.Controllers
             return StatusCode(500, "An error ocurred while inserting the Payment");
         }
 
-<<<<<<< HEAD
-        [HttpPut("{PaymentID}")]
-=======
         [HttpPut("Update/{PaymentID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult PaymentUpdate(int PaymentID, [FromBody] PaymentModel payment)
         {
             var isUpdated = _paymentRepository.UpdatePayment(payment);

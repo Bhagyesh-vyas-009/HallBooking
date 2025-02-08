@@ -1,13 +1,8 @@
 ﻿using HallBookingAPI.Models;
-<<<<<<< HEAD
-using System.Data;
-using System.Data.SqlClient;
-=======
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Data.SqlClient;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
 namespace HallBookingAPI.Data
 {
@@ -20,15 +15,9 @@ namespace HallBookingAPI.Data
                 _connectionString = connectionString.GetConnectionString("ConnectionString");
             }
 
-<<<<<<< HEAD
-            public IEnumerable<BookingModel> GetAllBookings()
-            {
-                List<BookingModel> bookings = new List<BookingModel>();
-=======
             public IEnumerable<UserBookingModel> GetAllBookings()
             {
                 List<UserBookingModel> bookings = new List<UserBookingModel>();
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
@@ -40,13 +29,6 @@ namespace HallBookingAPI.Data
 
                     while (sdr.Read())
                     {
-<<<<<<< HEAD
-                        bookings.Add(new BookingModel()
-                        {
-                            BookingID = Convert.ToInt32(sdr["BookingID"]),
-                            UserID = Convert.ToInt32(sdr["UserID"]),
-                            ResourceID = Convert.ToInt32(sdr["ResourceID"]),
-=======
                         bookings.Add(new UserBookingModel()
                         {
                             BookingID = Convert.ToInt32(sdr["BookingID"]),
@@ -56,7 +38,6 @@ namespace HallBookingAPI.Data
                             ResourceType = sdr["ResourceType"].ToString(),
                             Location = sdr["Location"].ToString(),
                             PricePerDay = Convert.ToInt32(sdr["PricePerDay"]),
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                             BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
                             FromDate = Convert.ToDateTime(sdr["FromDate"]),
                             ToDate = Convert.ToDateTime(sdr["ToDate"]),
@@ -71,9 +52,6 @@ namespace HallBookingAPI.Data
                 return bookings;
             }
 
-<<<<<<< HEAD
-            public BookingModel SelectBookingByPK(int BookingID)
-=======
         public IEnumerable<UserBookingModel> GetAllBookingByUserID(int UserID)
         {
             List<UserBookingModel> bookings = new List<UserBookingModel>();
@@ -186,7 +164,6 @@ namespace HallBookingAPI.Data
         }
 
         public BookingModel SelectBookingByPK(int BookingID)
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
             {
                 BookingModel booking = null;
 
@@ -246,12 +223,8 @@ namespace HallBookingAPI.Data
 
                     cmd.Parameters.AddWithValue("@UserID", booking.UserID);
                     cmd.Parameters.AddWithValue("@ResourceID", booking.ResourceID);
-<<<<<<< HEAD
-                    cmd.Parameters.AddWithValue("@BookingDate", booking.BookingDate);
-=======
                 //cmd.Parameters.Add("@BookingDate",SqlDbType.DateTime).Value=DBNull.Value;
                     cmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                     cmd.Parameters.AddWithValue("@FromDate", booking.FromDate);
                     cmd.Parameters.AddWithValue("@ToDate", booking.ToDate);
                     cmd.Parameters.AddWithValue("@TotalPrice", booking.TotalPrice);
@@ -287,8 +260,6 @@ namespace HallBookingAPI.Data
                     return rowsAffected > 0;
                 }
             }
-<<<<<<< HEAD
-=======
 
         public void CancelBooking(int BookingID, string status)
         {
@@ -423,6 +394,5 @@ namespace HallBookingAPI.Data
 
             return bookedDates;
         }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     }
 }

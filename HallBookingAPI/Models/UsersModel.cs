@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿namespace HallBookingAPI.Models
-=======
 ﻿using FluentValidation;
 
 namespace HallBookingAPI.Models
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 {
     public class UsersModel
     {
@@ -15,11 +11,7 @@ namespace HallBookingAPI.Models
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public bool IsAdmin { get; set; }
-<<<<<<< HEAD
-        public string Address { get; set; }
-=======
         //public string? Address { get; set; }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public string Role { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
@@ -30,8 +22,6 @@ namespace HallBookingAPI.Models
         public int UserID { get; set; }
         public string FullName { get; set; }
     }
-<<<<<<< HEAD
-=======
 
     public class UserLoginModel
     {
@@ -90,5 +80,4 @@ namespace HallBookingAPI.Models
                 .NotEmpty().NotNull().WithMessage("Role is required.");
         }
     }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 }

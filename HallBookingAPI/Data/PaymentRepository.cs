@@ -78,8 +78,6 @@ namespace HallBookingAPI.Data
             return payment;
         }
 
-<<<<<<< HEAD
-=======
         public IEnumerable<PaymentModel> GetAllPaymentByBookingID(int BookingID)
         {
             List<PaymentModel> payments = new List<PaymentModel>();
@@ -147,7 +145,6 @@ namespace HallBookingAPI.Data
             return payments;
         }
 
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public bool DeletePayment(int PaymentID)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -174,11 +171,7 @@ namespace HallBookingAPI.Data
 
                 cmd.Parameters.AddWithValue("@BookingID", payment.BookingID);
                 cmd.Parameters.AddWithValue("@UserID", payment.UserID);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@PaymentDate", payment.PaymentDate);
-=======
                 cmd.Parameters.AddWithValue("@PaymentDate", DateTime.Now);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@PaymentMethod", payment.PaymentMethod);
                 cmd.Parameters.AddWithValue("@Amount", payment.Amount);
                 cmd.Parameters.AddWithValue("@Status", payment.Status);
@@ -202,11 +195,7 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@PaymentID", payment.PaymentID);
                 cmd.Parameters.AddWithValue("@BookingID", payment.BookingID);
                 cmd.Parameters.AddWithValue("@UserID", payment.UserID);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@PaymentDate", payment.PaymentDate);
-=======
                 cmd.Parameters.AddWithValue("@PaymentDate", DateTime.Now);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@PaymentMethod", payment.PaymentMethod);
                 cmd.Parameters.AddWithValue("@Amount", payment.Amount);
                 cmd.Parameters.AddWithValue("@Status", payment.Status);

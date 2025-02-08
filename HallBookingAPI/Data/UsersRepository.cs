@@ -1,12 +1,8 @@
 ﻿using HallBookingAPI.Models;
 using System.Data;
-<<<<<<< HEAD
-using System.Data.SqlClient;
-=======
 using System.Security.Cryptography;
 using System.Data.SqlClient;
 using System.Text;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
 namespace HallBookingAPI.Data
 {
@@ -39,11 +35,7 @@ namespace HallBookingAPI.Data
                     Password = sdr["Password"].ToString(),
                     PhoneNumber = sdr["PhoneNumber"].ToString(),
                     IsAdmin = Convert.ToBoolean(sdr["isAdmin"]),
-<<<<<<< HEAD
-                    Address = sdr["Address"].ToString(),
-=======
                     //Address = sdr["Address"].ToString(),
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                     Role = sdr["Role"].ToString(),
                     CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                     UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
@@ -76,11 +68,7 @@ namespace HallBookingAPI.Data
                         Password = sdr["Password"].ToString(),
                         PhoneNumber = sdr["PhoneNumber"].ToString(),
                         IsAdmin = Convert.ToBoolean(sdr["isAdmin"]),
-<<<<<<< HEAD
-                        Address = sdr["Address"].ToString(),
-=======
                         //Address = sdr["Address"].ToString(),
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                         Role = sdr["Role"].ToString(),
                         CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                         UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
@@ -107,10 +95,7 @@ namespace HallBookingAPI.Data
 
         public bool InsertUser(UsersModel user)
         {
-<<<<<<< HEAD
-=======
             string passwordHash = HashPassword(user.Password);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -120,17 +105,10 @@ namespace HallBookingAPI.Data
 
                 cmd.Parameters.AddWithValue("@FullName", user.FullName);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@Password", user.Password);
-                cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
-                cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
-                cmd.Parameters.AddWithValue("@Address", user.Address);
-=======
                 cmd.Parameters.AddWithValue("@Password", passwordHash);
                 cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
                 //cmd.Parameters.AddWithValue("@Address", user.Address);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@Role", user.Role);
                 cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
                 cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
@@ -140,10 +118,6 @@ namespace HallBookingAPI.Data
             }
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public bool UpdateUser(UsersModel user)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -159,11 +133,7 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@Password", user.Password);
                 cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@Address", user.Address);
-=======
                 //cmd.Parameters.AddWithValue("@Address", user.Address);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@Role", user.Role);
                 cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
 
@@ -195,8 +165,6 @@ namespace HallBookingAPI.Data
         }
 
 
-<<<<<<< HEAD
-=======
         public UsersModel AuthenticateUser(UserLoginModel user)
         {
             //try
@@ -249,6 +217,5 @@ namespace HallBookingAPI.Data
                 return builder.ToString();
             }
         }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     }
 }

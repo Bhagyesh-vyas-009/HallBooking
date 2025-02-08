@@ -1,9 +1,6 @@
 ﻿using HallBookingAPI.Data;
 using HallBookingAPI.Models;
-<<<<<<< HEAD
-=======
 using Microsoft.AspNetCore.Authorization;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +8,7 @@ namespace HallBookingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-<<<<<<< HEAD
-=======
     //[Authorize]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     public class BookingController : ControllerBase
     {
         private readonly BookingRepository _bookingRepository;
@@ -30,11 +24,6 @@ namespace HallBookingAPI.Controllers
             return Ok(bookings);
         }
 
-<<<<<<< HEAD
-
-
-        [HttpGet("{BookingID}")]
-=======
         [HttpGet("BookingByUser/{UserID}")]
         public IActionResult GetAllBookingByUserID(int UserID)
         {
@@ -57,7 +46,6 @@ namespace HallBookingAPI.Controllers
         }
 
         [HttpGet("GetBy/{BookingID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult GetBookingByID(int BookingID)
         {
             BookingModel booking = _bookingRepository.SelectBookingByPK(BookingID);
@@ -66,18 +54,6 @@ namespace HallBookingAPI.Controllers
             return Ok(booking);
         }
 
-<<<<<<< HEAD
-        [HttpDelete("{BookingID}")]
-        public IActionResult DeleteBooking(int BookingID)
-        {
-            var isDeleted = _bookingRepository.DeleteBooking(BookingID);
-            if (!isDeleted)
-                return NotFound();
-            return NoContent();
-        }
-
-        [HttpPost]
-=======
         //[HttpDelete("Cancel/{BookingID}")]
         //public IActionResult DeleteBooking(int BookingID)
         //{
@@ -88,7 +64,6 @@ namespace HallBookingAPI.Controllers
         //}
 
         [HttpPost("Add")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult BookingInsert([FromBody] BookingModel booking)
         {
             var isInserted = _bookingRepository.InsertBooking(booking);
@@ -99,9 +74,6 @@ namespace HallBookingAPI.Controllers
             return StatusCode(500, "An error ocurred while inserting the Booking");
         }
 
-<<<<<<< HEAD
-        [HttpPut("{BookingID}")]
-=======
         [HttpPut("Cancel/{BookingID}")]
         public IActionResult CancelBooking(int BookingID,[FromBody]string status)
         {
@@ -127,7 +99,6 @@ namespace HallBookingAPI.Controllers
         }
 
         [HttpPut("Update/{BookingID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult BookingUpdate(int BookingID, [FromBody] BookingModel booking)
         {
             var isUpdated = _bookingRepository.UpdateBooking(booking);
@@ -141,8 +112,6 @@ namespace HallBookingAPI.Controllers
             }
             return StatusCode(500, "An error ocurred while updating the Booking");
         }
-<<<<<<< HEAD
-=======
 
         [HttpGet("bookedDateRanges/{ResourceID}")]
         public async Task<IActionResult> GetBookedDateRanges(int ResourceID)
@@ -166,6 +135,5 @@ namespace HallBookingAPI.Controllers
             }
         }
 
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     }
 }

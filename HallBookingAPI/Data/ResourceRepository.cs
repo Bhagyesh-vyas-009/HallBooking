@@ -1,8 +1,5 @@
 ﻿using HallBookingAPI.Models;
-<<<<<<< HEAD
-=======
 using Newtonsoft.Json;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 using System.Data;
 using System.Data.SqlClient;
 
@@ -11,17 +8,6 @@ namespace HallBookingAPI.Data
     public class ResourceRepository
     {
         private readonly string _connectionString;
-<<<<<<< HEAD
-
-        public ResourceRepository(IConfiguration connectionString)
-        {
-            _connectionString = connectionString.GetConnectionString("ConnectionString");
-        }
-
-        public IEnumerable<ResourceModel> GetAllResources()
-        {
-            List<ResourceModel> resources = new List<ResourceModel>();
-=======
         private readonly IWebHostEnvironment _environment;
 
         public ResourceRepository(IConfiguration connectionString,IWebHostEnvironment environment)
@@ -33,7 +19,6 @@ namespace HallBookingAPI.Data
         public IEnumerable<ResourceDetailModel> GetAllResources()
         {
             List<ResourceDetailModel> resources = new List<ResourceDetailModel>();
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
             SqlConnection conn = new SqlConnection(_connectionString);
                 conn.Open();
@@ -44,11 +29,7 @@ namespace HallBookingAPI.Data
 
                 while (sdr.Read())
                 {
-<<<<<<< HEAD
-                    resources.Add(new ResourceModel()
-=======
                     resources.Add(new ResourceDetailModel()
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                     {
                         ResourceID = Convert.ToInt32(sdr["ResourceID"]),
                         ResourceType = sdr["ResourceType"].ToString(),
@@ -58,12 +39,6 @@ namespace HallBookingAPI.Data
                         Capacity = Convert.ToDecimal(sdr["Capacity"]),
                         Description = sdr["Description"].ToString(),
                         PricePerDay = Convert.ToDecimal(sdr["PricePerDay"]),
-<<<<<<< HEAD
-                        IsAvailable = Convert.ToBoolean(sdr["IsAvailable"]),
-                        CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
-                        UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"]),
-                        UserName = sdr["FullName"].ToString()
-=======
                         OpenHours = sdr["OpenHours"].ToString(),
                         CloseHours = sdr["CloseHours"].ToString(),
                         IsAvailable = Convert.ToBoolean(sdr["IsAvailable"]),
@@ -76,17 +51,11 @@ namespace HallBookingAPI.Data
                         StateName = sdr["StateName"].ToString(),
                         CountryName = sdr["CountryName"].ToString()
 
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                     });
                 }
             return resources;
         }
 
-<<<<<<< HEAD
-        public ResourceModel SelectResourceByPK(int ResourceID)
-        {
-            ResourceModel resource = null;
-=======
 
         public IEnumerable<ResourceDetailModel> GetResourcesByUserID(int UserID)
         {
@@ -132,7 +101,6 @@ namespace HallBookingAPI.Data
         public ResourceUploadModel SelectResourceByPK(int ResourceID)
         {
             ResourceUploadModel resource = null;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -145,23 +113,13 @@ namespace HallBookingAPI.Data
                 SqlDataReader sdr = cmd.ExecuteReader();
                 if (sdr.Read())
                 {
-<<<<<<< HEAD
-                    resource = new ResourceModel
-=======
                     resource = new ResourceUploadModel
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                     {
                         ResourceID = Convert.ToInt32(sdr["ResourceID"]),
                         ResourceType = sdr["ResourceType"].ToString(),
                         Name = sdr["Name"].ToString(),
                         Location = sdr["Location"].ToString(),
                         PinCode = Convert.ToInt32(sdr["PinCode"]),
-<<<<<<< HEAD
-                        Capacity = Convert.ToDecimal(sdr["Capacity"]),
-                        Description = sdr["Description"].ToString(),
-                        PricePerDay = Convert.ToDecimal(sdr["PricePerDay"]),
-                        IsAvailable = Convert.ToBoolean(sdr["IsAvailable"]),
-=======
                         CityID= Convert.ToInt32(sdr["CityID"]),
                         CountryID = Convert.ToInt32(sdr["CountryID"]),
                         StateID = Convert.ToInt32(sdr["StateID"]),
@@ -173,7 +131,6 @@ namespace HallBookingAPI.Data
                         IsAvailable = Convert.ToBoolean(sdr["IsAvailable"]),
                         Latitude = Convert.ToDouble(sdr["Latitude"]),
                         Longitude = Convert.ToDouble(sdr["Longitude"]),
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                         CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                         UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"]),
                         UserID = Convert.ToInt32(sdr["UserID"])
@@ -199,11 +156,7 @@ namespace HallBookingAPI.Data
             }
         }
 
-<<<<<<< HEAD
-        public bool InsertResource(ResourceModel resource)
-=======
         public bool InsertResource(ResourceUploadModel resource)
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -215,25 +168,18 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@ResourceType", resource.ResourceType);
                 cmd.Parameters.AddWithValue("@Name", resource.Name);
                 cmd.Parameters.AddWithValue("@Location", resource.Location);
-<<<<<<< HEAD
-=======
                 cmd.Parameters.AddWithValue("@CountryID", resource.CountryID);
                 cmd.Parameters.AddWithValue("@StateID", resource.StateID);
                 cmd.Parameters.AddWithValue("@CityID", resource.CityID);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@PinCode", resource.PinCode);
                 cmd.Parameters.AddWithValue("@Capacity", resource.Capacity);
                 cmd.Parameters.AddWithValue("@Description", resource.Description);
                 cmd.Parameters.AddWithValue("@PricePerDay", resource.PricePerDay);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
-=======
                 cmd.Parameters.AddWithValue("@OpenHours", resource.OpenHours);
                 cmd.Parameters.AddWithValue("@CloseHours", resource.CloseHours);
                 cmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
                 cmd.Parameters.AddWithValue("@Latitude", resource.Latitude);
                 cmd.Parameters.AddWithValue("@Longitude", resource.Longitude);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
                 cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
                 cmd.Parameters.AddWithValue("@UserID", resource.UserID);
@@ -243,11 +189,7 @@ namespace HallBookingAPI.Data
             }
         }
 
-<<<<<<< HEAD
-        public bool UpdateResource(ResourceModel resource)
-=======
         public bool UpdateResource(ResourceUploadModel resource)
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -260,25 +202,18 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@ResourceType", resource.ResourceType);
                 cmd.Parameters.AddWithValue("@Name", resource.Name);
                 cmd.Parameters.AddWithValue("@Location", resource.Location);
-<<<<<<< HEAD
-=======
                 cmd.Parameters.AddWithValue("@CityID", resource.CityID);
                 cmd.Parameters.AddWithValue("@CountryID", resource.CountryID);
                 cmd.Parameters.AddWithValue("@StateID", resource.StateID);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.AddWithValue("@PinCode", resource.PinCode);
                 cmd.Parameters.AddWithValue("@Capacity", resource.Capacity);
                 cmd.Parameters.AddWithValue("@Description", resource.Description);
                 cmd.Parameters.AddWithValue("@PricePerDay", resource.PricePerDay);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
-=======
                 cmd.Parameters.AddWithValue("@OpenHours", resource.OpenHours);
                 cmd.Parameters.AddWithValue("@CloseHours", resource.CloseHours);
                 cmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
                 cmd.Parameters.AddWithValue("@Latitude", resource.Latitude);
                 cmd.Parameters.AddWithValue("@Longitude", resource.Longitude);
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
                 cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
                 cmd.Parameters.AddWithValue("@UserID", resource.UserID);
 
@@ -286,10 +221,6 @@ namespace HallBookingAPI.Data
                 return rowsAffected > 0;
             }
         }
-<<<<<<< HEAD
-    }
-
-=======
 
         public async Task UploadPropertyWithImage(ResourceUploadModel resource)
         {
@@ -363,5 +294,4 @@ namespace HallBookingAPI.Data
 
         }
     }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 }

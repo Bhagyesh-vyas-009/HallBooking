@@ -180,3 +180,4 @@ D:\6-662\Adv Dot Net Projects\HallBookingAPI\HallBookingAPI\obj\Debug\net8.0\ref
 D:\6-662\Adv Dot Net Projects\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\6-662\Adv Dot Net Projects\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 >>>>>>> a6d1194 (JWT authentication and Image Upload Added)
+D:\6-662\Adv Dot Net Projects\HallBookingAPI\HallBookingAPI\obj\Debug\net8.0\HallBookingAPI.sourcelink.json

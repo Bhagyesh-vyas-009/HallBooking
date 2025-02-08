@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-﻿using HallBookingAPI.Data;
-using HallBookingAPI.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-=======
-﻿
 using HallBookingAPI.Data;
 using HallBookingAPI.Models;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 
 namespace HallBookingAPI.Controllers
 {
@@ -23,17 +15,11 @@ namespace HallBookingAPI.Controllers
     {
 
         private readonly UsersRepository _usersRepository;
-<<<<<<< HEAD
-        public UsersController(UsersRepository usersRepository)
-        {
-            _usersRepository = usersRepository;
-=======
-        private readonly IConfiguration _configuration;
+private readonly IConfiguration _configuration;
         public UsersController(UsersRepository usersRepository,IConfiguration configuration)
         {
             _usersRepository = usersRepository;
             _configuration = configuration;
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         }
 
         [HttpGet]
@@ -50,11 +36,7 @@ namespace HallBookingAPI.Controllers
             return Ok(users);
         }
 
-<<<<<<< HEAD
-        [HttpGet("{UserID}")]
-=======
-        [HttpGet("GetBy/{UserID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
+[HttpGet("GetBy/{UserID}")]
         public IActionResult GetUserByID(int UserID)
         {
             UsersModel user = _usersRepository.SelectUserByPK(UserID);
@@ -63,11 +45,7 @@ namespace HallBookingAPI.Controllers
             return Ok(user);
         }
 
-<<<<<<< HEAD
-        [HttpDelete("{UserID}")]
-=======
-        [HttpDelete("Delete/{UserID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
+[HttpDelete("Delete/{UserID}")]
         public IActionResult DeleteUser(int UserID)
         {
             var isDeleted = _usersRepository.DeleteUser(UserID);
@@ -76,30 +54,18 @@ namespace HallBookingAPI.Controllers
             return NoContent();
         }
 
-<<<<<<< HEAD
-        [HttpPost]
-=======
-        [HttpPost("Register")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
+[HttpPost("Register")]
         public IActionResult UserInsert([FromBody] UsersModel user)
         {
             var isInserted = _usersRepository.InsertUser(user);
             if (user == null)
                 return BadRequest();
             if (isInserted)
-<<<<<<< HEAD
-                return Ok(new { Message = "User Inserted  Successfully" });
-            return StatusCode(500, "An error ocurred while inserting the User");
-        }
-
-        [HttpPut("{UserID}")]
-=======
-                return Ok(new { Message = "Registered  Successfully" });
+        return Ok(new { Message = "Registered  Successfully" });
             return StatusCode(500, "An error ocurred while inserting the User");
         }
 
         [HttpPut("Update/{UserID}")]
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public IActionResult UserUpdate(int UserID, [FromBody] UsersModel user)
         {
             var isUpdated = _usersRepository.UpdateUser(user);
@@ -114,23 +80,24 @@ namespace HallBookingAPI.Controllers
             return StatusCode(500, "An error ocurred while updating the User");
         }
 
-<<<<<<< HEAD
-=======
 
         [HttpPost("Login")]
         public IActionResult Login([FromBody] UserLoginModel userLoginModel) {
 
-            var userData = _usersRepository.AuthenticateUser(userLoginModel);
-            if (userLoginModel == null )
+            if (userLoginModel == null)
             {
-                return BadRequest();
+                return BadRequest(new { message = "Invalid request data" });
             }
+            //if (userLoginModel == null )
+            //{
+            //    return BadRequest();
+            //}
+            var userData = _usersRepository.AuthenticateUser(userLoginModel);
             if (userData==null)
             {
-                return StatusCode(500, "Please enter valid Email and password and Role");
+                return Unauthorized(new { message = "Please enter valid Email and password and Role" });
             }
-            if (userData != null)
-            {
+
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"] ),
@@ -155,8 +122,6 @@ namespace HallBookingAPI.Controllers
 
                 string tockenValue = new JwtSecurityTokenHandler().WriteToken(token);
                 return Ok(new { Token = tockenValue, User = userData, Message = "User Login Successfully" });
-            }
-            return Unauthorized("Invalid username or password or Role.");
         }
 
         //public IActionResult Login([FromBody] UserLoginModel userLoginModel)
@@ -179,6 +144,5 @@ namespace HallBookingAPI.Controllers
 
         //    return Ok(new { messge="Login successful"});
         //}
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     }
 }

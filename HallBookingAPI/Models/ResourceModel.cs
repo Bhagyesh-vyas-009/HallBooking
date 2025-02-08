@@ -1,38 +1,22 @@
-<<<<<<< HEAD
-﻿namespace HallBookingAPI.Models
-{
-    public class ResourceModel
-=======
 ﻿using FluentValidation;
 
 namespace HallBookingAPI.Models
 {
     public class ResourceDetailModel
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     {
         public int ResourceID { get; set; }
         public string ResourceType { get; set; }
         public string Name { get; set; }
         public string Location { get; set; }
-<<<<<<< HEAD
-=======
 
         public string? CityName { get; set; }
         public string? StateName { get; set; }
 
         public string? CountryName { get; set; }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public int PinCode { get; set; }
         public decimal Capacity { get; set; }
         public string Description { get; set; }
         public decimal PricePerDay { get; set; }
-<<<<<<< HEAD
-        public bool IsAvailable { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-        public int UserID { get; set; }
-        public string? UserName { get; set; }
-=======
         public string OpenHours { get; set; }
         public string CloseHours { get; set; }
         public bool IsAvailable { get; set; }
@@ -129,6 +113,5 @@ namespace HallBookingAPI.Models
             RuleFor(resource => resource.UserID)
                 .GreaterThan(0).WithMessage("User ID must be greater than 0.");
         }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
     }
 }

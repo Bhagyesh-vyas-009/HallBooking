@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-using HallBookingAPI.Data;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-=======
 using FluentValidation.AspNetCore;
 using HallBookingAPI.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -51,7 +42,6 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers()
     .AddFluentValidation(c => c.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -60,11 +50,6 @@ builder.Services.AddScoped<ResourceRepository>();
 builder.Services.AddScoped<BookingRepository>();
 builder.Services.AddScoped<PaymentRepository>();
 builder.Services.AddScoped<ReviewRepository>();
-<<<<<<< HEAD
-
-var app = builder.Build();
-
-=======
 builder.Services.AddScoped<ResourceImageRepository>();
 builder.Services.AddScoped<CountryRepository>();
 builder.Services.AddScoped<StateRepository>();
@@ -123,7 +108,6 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/Images"
 });
 
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -131,10 +115,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-<<<<<<< HEAD
-app.UseHttpsRedirection();
-
-=======
 
 app.UseStaticFiles(new StaticFileOptions
 {
@@ -146,7 +126,6 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseCors("AllowReactApp");
 app.UseCors("AllowViteApp");
 app.UseHttpsRedirection();
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 app.UseAuthorization();
 
 app.MapControllers();

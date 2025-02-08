@@ -1,20 +1,12 @@
-<<<<<<< HEAD
-﻿namespace HallBookingAPI.Models
-=======
 ﻿using FluentValidation;
 
 namespace HallBookingAPI.Models
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 {
     public class BookingModel
     {
 
         public int BookingID { get; set; }
         public int UserID { get; set; }
-<<<<<<< HEAD
-=======
-
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
         public int ResourceID { get; set; }
         public DateTime BookingDate { get; set; }
         public DateTime FromDate { get; set; }
@@ -24,8 +16,6 @@ namespace HallBookingAPI.Models
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
-<<<<<<< HEAD
-=======
 
     public class UserBookingModel
     {
@@ -91,5 +81,4 @@ namespace HallBookingAPI.Models
                 .WithMessage("Status must be one of the following: Pending, Confirmed, Cancelled, Completed.");
         }
     }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 }

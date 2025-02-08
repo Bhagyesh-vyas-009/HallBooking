@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿namespace HallBookingAPI.Models
-=======
-﻿using FluentValidation;
+using FluentValidation;
 
 namespace HallBookingAPI.Models
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 {
     public class PaymentModel
     {
@@ -20,8 +16,6 @@ namespace HallBookingAPI.Models
         public DateTime UpdatedAt { get; set; }
         public DateTime? BookingDate { get; set; }
     }
-<<<<<<< HEAD
-=======
 
     public class PaymentModelValidator : AbstractValidator<PaymentModel>
     {
@@ -75,5 +69,4 @@ namespace HallBookingAPI.Models
         public string? ResourceName { get; set; }
 
     }
->>>>>>> a6d1194 (JWT authentication and Image Upload Added)
 }
