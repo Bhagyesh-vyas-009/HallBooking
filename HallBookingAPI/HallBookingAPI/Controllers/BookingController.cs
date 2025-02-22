@@ -71,7 +71,6 @@ namespace HallBookingAPI.Controllers
 
         #region GetBookingByID
         [HttpGet("GetBy/{BookingID}")]
-        [Authorize(Roles = "Admin,Owner")]
         public IActionResult GetBookingByID(int BookingID)
         {
             BookingModel booking = _bookingRepository.SelectBookingByPK(BookingID);

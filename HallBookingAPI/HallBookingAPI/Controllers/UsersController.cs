@@ -45,6 +45,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetUserByID
+        [Authorize]
         [HttpGet("GetBy/{UserID}")]
         public IActionResult GetUserByID(int UserID)
         {
@@ -81,6 +82,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region UserUpdate
+        [Authorize]
         [HttpPut("Update/{UserID}")]
         public IActionResult UserUpdate(int UserID, [FromBody] UsersModel user)
         {
