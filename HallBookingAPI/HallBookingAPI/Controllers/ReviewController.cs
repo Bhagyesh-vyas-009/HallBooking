@@ -20,6 +20,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetAllReviews
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult GetAllReviews()
         {
@@ -47,6 +48,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetAllReviewByOwnerID
+        [Authorize(Roles = "Owner")]
         [HttpGet("Owner/{OwnerID}")]
         public IActionResult GetAllReviewByOwnerID(int OwnerID)
         {
@@ -67,6 +69,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region DeleteReview
+        [Authorize(Roles = "Admin,Owner")]
         [HttpDelete("Delete/{ReviewID}")]
         public IActionResult DeleteReview(int ReviewID)
         {

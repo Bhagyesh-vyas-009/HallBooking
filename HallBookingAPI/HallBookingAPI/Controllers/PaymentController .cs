@@ -1,5 +1,6 @@
 ﻿using HallBookingAPI.Data;
 using HallBookingAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace HallBookingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class PaymentController : ControllerBase
     {
         #region Configuration
@@ -71,7 +73,6 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
-
         #region PaymentInsert
         [HttpPost("Add")]
         public IActionResult PaymentInsert([FromBody] PaymentModel payment)
@@ -85,8 +86,8 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
-
         #region PaymentUpdate
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{PaymentID}")]
         public IActionResult PaymentUpdate(int PaymentID, [FromBody] PaymentModel payment)
         {

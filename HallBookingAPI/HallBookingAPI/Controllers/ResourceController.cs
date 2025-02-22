@@ -25,6 +25,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetAllResources
         [HttpGet]
+        [Authorize(Roles = "Admin,User")]
         public IActionResult GetAllResources()
         {
             var resources = _resourceRepository.GetAllResources();
@@ -53,6 +54,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetResourceByUserID
+        [Authorize(Roles = "Owner")]
         [HttpGet("GetBy/User/{UserID}")]
         public IActionResult GetResourceByUserID(int UserID)
         {
@@ -64,6 +66,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region UploadPropertyWithImages
+        [Authorize(Roles = "Owner")]
         [HttpPost("UploadPropertyWithImages")]
         public async Task<IActionResult> UploadPropertyWithImages([FromForm] ResourceUploadModel resourceUpload)
         {
@@ -78,6 +81,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region DeleteResource
+        [Authorize(Roles = "Admin,Owner")]
         [HttpDelete("Delete/{ResourceID}")]
         public IActionResult DeleteResource(int ResourceID)
         {

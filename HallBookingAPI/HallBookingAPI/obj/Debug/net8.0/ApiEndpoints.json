@@ -11,22 +11,6 @@
   },
   {
     "ContainingType": "HallBookingAPI.Controllers.BookingController",
-    "Method": "BookingInsert",
-    "RelativePath": "api/Booking/Add",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "booking",
-        "Type": "HallBookingAPI.Models.BookingModel",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "HallBookingAPI.Controllers.BookingController",
     "Method": "GetBookedDateRanges",
     "RelativePath": "api/Booking/bookedDateRanges/{ResourceID}",
     "HttpMethod": "GET",

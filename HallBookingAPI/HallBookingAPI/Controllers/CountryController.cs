@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPiDemo.Data;
 using WebAPiDemo.Models;
@@ -7,6 +8,7 @@ namespace WebAPiDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CountryController : ControllerBase
     {
         #region Configuration
@@ -41,6 +43,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region DeleteCountry
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{CountryID}")]
         public IActionResult DeleteCountry(int CountryID)
         {
@@ -54,6 +57,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region CountryInsert
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public IActionResult CountryInsert([FromBody] CountryModel country)
         {
@@ -71,6 +75,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region CountryUpdate
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{CountryID}")]
         public IActionResult CountryUpdate(int CountryID, [FromBody] CountryModel country)
         {

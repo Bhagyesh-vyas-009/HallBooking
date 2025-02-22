@@ -8,7 +8,7 @@ namespace HallBookingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class BookingController : ControllerBase
     {
         #region Configuration
@@ -21,7 +21,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetAllBookings
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult GetAllBookings()
         {
@@ -41,6 +41,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetAllBookingByOwnerID
         [HttpGet("BookingByOwner/{OwnerID}")]
+        [Authorize(Roles = "Owner")]
         public IActionResult GetAllBookingByOwnerID(int OwnerID)
         {
             var bookings = _bookingRepository.GetAllBookingByOwnerID(OwnerID);
@@ -50,6 +51,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetBookingDetail
         [HttpGet("BookingDetail/{BookingID}")]
+        [Authorize(Roles = "Admin,Owner")]
         public IActionResult GetBookingDetail(int BookingID)
         {
             UserBookingModel booking = _bookingRepository.GetBookingDetail(BookingID);
@@ -59,6 +61,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetAllBookingByResourceID
         [HttpGet("BookingByResource/{ResourceID}")]
+        [Authorize(Roles = "Owner")]
         public IActionResult GetAllBookingByResourceID(int ResourceID)
         {
             var bookings = _bookingRepository.GetAllBookingByResourceID(ResourceID);
@@ -68,6 +71,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetBookingByID
         [HttpGet("GetBy/{BookingID}")]
+        [Authorize(Roles = "Admin,Owner")]
         public IActionResult GetBookingByID(int BookingID)
         {
             BookingModel booking = _bookingRepository.SelectBookingByPK(BookingID);
@@ -77,21 +81,9 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
-        #region BookingInsert
-        [HttpPost("Add")]
-        public IActionResult BookingInsert([FromBody] BookingModel booking)
-        {
-            var isInserted = _bookingRepository.InsertBooking(booking);
-            if (booking == null)
-                return BadRequest();
-            if (isInserted)
-                return Ok(new { Message = "Booking Inserted  Successfully" });
-            return StatusCode(500, "An error ocurred while inserting the Booking");
-        }
-        #endregion
-
         #region CancelBooking
         [HttpPut("Cancel/{BookingID}")]
+        [Authorize(Roles = "Admin,Owner")]
         public IActionResult CancelBooking(int BookingID,[FromBody]string status)
         {
             var booking = _bookingRepository.SelectBookingByPK(BookingID);
@@ -120,6 +112,7 @@ namespace HallBookingAPI.Controllers
 
         #region BookingUpdate
         [HttpPut("Update/{BookingID}")]
+        [Authorize(Roles = "Admin,Owner")]
         public IActionResult BookingUpdate(int BookingID, [FromBody] BookingModel booking)
         {
             var isUpdated = _bookingRepository.UpdateBooking(booking);

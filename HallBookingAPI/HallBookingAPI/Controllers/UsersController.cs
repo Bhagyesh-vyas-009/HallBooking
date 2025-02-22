@@ -1,5 +1,6 @@
 using HallBookingAPI.Data;
 using HallBookingAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -24,6 +25,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetAllUser
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult GetAllUser()
         {
@@ -33,6 +35,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region GetUserDropDown
+        [Authorize(Roles = "Owner")]
         [HttpGet("UserDropDown/{OwnerID}")]
         public IActionResult GetUserDropDown(int OwnerID)
         {
@@ -53,6 +56,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region DeleteUser
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{UserID}")]
         public IActionResult DeleteUser(int UserID)
         {

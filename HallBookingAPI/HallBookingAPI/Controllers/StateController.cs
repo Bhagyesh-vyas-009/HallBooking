@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPiDemo.Data;
 using WebAPiDemo.Models;
@@ -7,6 +8,7 @@ namespace WebAPiDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class StateController : ControllerBase
     {
         #region Configuration
@@ -67,6 +69,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region DeleteState
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{StateID}")]
         public IActionResult DeleteState(int StateID)
         {
@@ -80,6 +83,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region StateInsert
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public IActionResult StateInsert([FromBody] StateModel state)
         {
@@ -97,6 +101,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region StateUpdate
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{StateID}")]
         public IActionResult StateUpdate(int StateID, [FromBody] StateModel state)
         {

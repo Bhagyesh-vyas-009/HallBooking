@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPiDemo.Data;
 using WebAPiDemo.Models;
@@ -7,6 +8,7 @@ namespace WebAPiDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CityController : ControllerBase
     {
         #region Configutaion
@@ -53,7 +55,7 @@ namespace WebAPiDemo.Controllers
         }
         #endregion
 
-        #region 
+        #region GetCityByID
         [HttpGet("GetBy/{CityID}")]
         public IActionResult GetCityByID(int CityID)
         {
@@ -67,6 +69,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region CityInsert
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public IActionResult CityInsert([FromBody] CityModel city)
         {
@@ -84,6 +87,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region CityUpdate
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{CityID}")]
         public IActionResult CityUpdate(int CityID, [FromBody] CityModel city)
         {
@@ -101,6 +105,7 @@ namespace WebAPiDemo.Controllers
         #endregion
 
         #region CityDelete
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{CityID}")]
         public IActionResult CityDelete(int CityID)
         {
@@ -112,8 +117,6 @@ namespace WebAPiDemo.Controllers
             return NoContent();
         }
         #endregion
-
-      
 
     }
 }

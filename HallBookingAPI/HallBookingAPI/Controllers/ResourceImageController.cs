@@ -1,5 +1,6 @@
 ﻿using HallBookingAPI.Data;
 using HallBookingAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace HallBookingAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class ResourceImageController : ControllerBase
     {
         #region Configutaion
@@ -47,6 +49,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region DeleteImage
+        [Authorize(Roles = "Owner")]
         [HttpDelete("Delete/{ImageID}")]
         public IActionResult DeleteImage(int ImageID)
         {
@@ -58,6 +61,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region ImageInsert
+        [Authorize(Roles = "Owner")]
         [HttpPost("Add")]
         public IActionResult ImageInsert([FromBody] ResourceImageModel resourceImage)
         {
@@ -71,6 +75,7 @@ namespace HallBookingAPI.Controllers
         #endregion
 
         #region ImageUpdate
+        [Authorize(Roles = "Owner")]
         [HttpPut("Update/{ImageID}")]
         public IActionResult ImageUpdate(int ImageID, [FromBody] ResourceImageModel resourceImage)
         {

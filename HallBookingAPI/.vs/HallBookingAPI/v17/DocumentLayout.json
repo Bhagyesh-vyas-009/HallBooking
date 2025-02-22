@@ -3,12 +3,44 @@
   "WorkspaceRootPath": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\paymentcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\paymentcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\resourcecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\resourceimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\resourceimagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\statecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\citycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\data\\resourcerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|solutionrelative:hallbookingapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C8678824-FF2C-4DDC-9DF2-035A8983C251}|HallBookingAPI\\HallBookingAPI.csproj|d:\\6-662\\adv dot net projects\\hallbooking\\hallbookingapi\\hallbookingapi\\data\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +70,102 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StateController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\StateController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\StateController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\StateController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\StateController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAGYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T17:18:42.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\ReviewController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\ReviewController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwEYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:55:01.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ResourceImageController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\ResourceImageController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\ResourceImageController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\ResourceImageController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\ResourceImageController.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAYwAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:53:13.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PaymentController .cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\PaymentController .cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\PaymentController .cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\PaymentController .cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\PaymentController .cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAFgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:34:27.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CountryController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\CountryController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\CountryController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\CountryController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\CountryController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwEwAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:31:56.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CityController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\CityController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\CityController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\CityController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\CityController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAwHcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:27:48.673Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\BookingController.cs",
+              "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "HallBookingAPI\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAkwFEAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T16:19:19.763Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,14 +175,14 @@
               "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\ResourceController.cs",
               "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\ResourceController.cs",
               "RelativeToolTip": "HallBookingAPI\\Controllers\\ResourceController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAIwE4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABsAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T13:00:57.376Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "ResourceModel.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Models\\ResourceModel.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Models\\ResourceModel.cs",
@@ -71,12 +190,11 @@
               "RelativeToolTip": "HallBookingAPI\\Models\\ResourceModel.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T12:59:15.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T12:59:15.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "ResourceRepository.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Data\\ResourceRepository.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Data\\ResourceRepository.cs",
@@ -84,25 +202,24 @@
               "RelativeToolTip": "HallBookingAPI\\Data\\ResourceRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAUwNIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T12:57:23.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T12:57:23.866Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Program.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Program.cs",
               "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Program.cs",
               "RelativeToolTip": "HallBookingAPI\\Program.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAADwv48AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAADwv5AAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T12:46:09.373Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\appsettings.json",
               "RelativeDocumentMoniker": "HallBookingAPI\\appsettings.json",
@@ -110,24 +227,24 @@
               "RelativeToolTip": "HallBookingAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-02-22T12:45:44.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T12:45:44.026Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Controllers\\UsersController.cs",
               "ToolTip": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Controllers\\UsersController.cs",
               "RelativeToolTip": "HallBookingAPI\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAkwIgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T12:44:32.75Z"
+              "WhenOpened": "2025-02-22T12:44:32.75Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "UsersRepository.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Data\\UsersRepository.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Data\\UsersRepository.cs",
@@ -139,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 14,
               "Title": "UsersModel.cs",
               "DocumentMoniker": "D:\\6-662\\Adv Dot Net Projects\\HallBooking\\HallBookingAPI\\HallBookingAPI\\Models\\UsersModel.cs",
               "RelativeDocumentMoniker": "HallBookingAPI\\Models\\UsersModel.cs",
