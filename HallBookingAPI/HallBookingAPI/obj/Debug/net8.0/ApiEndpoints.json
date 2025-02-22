@@ -1,0 +1,1020 @@
+[
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetAllBookings",
+    "RelativePath": "api/Booking",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "BookingInsert",
+    "RelativePath": "api/Booking/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "booking",
+        "Type": "HallBookingAPI.Models.BookingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetBookedDateRanges",
+    "RelativePath": "api/Booking/bookedDateRanges/{ResourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetAllBookingByOwnerID",
+    "RelativePath": "api/Booking/BookingByOwner/{OwnerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OwnerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetAllBookingByResourceID",
+    "RelativePath": "api/Booking/BookingByResource/{ResourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetAllBookingByUserID",
+    "RelativePath": "api/Booking/BookingByUser/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetBookingDetail",
+    "RelativePath": "api/Booking/BookingDetail/{BookingID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "CancelBooking",
+    "RelativePath": "api/Booking/Cancel/{BookingID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "CreateBooking",
+    "RelativePath": "api/Booking/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "booking",
+        "Type": "HallBookingAPI.Models.BookingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "GetBookingByID",
+    "RelativePath": "api/Booking/GetBy/{BookingID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "BookingUpdate",
+    "RelativePath": "api/Booking/Update/{BookingID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "booking",
+        "Type": "HallBookingAPI.Models.BookingModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "GetAllCities",
+    "RelativePath": "api/City",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "CityInsert",
+    "RelativePath": "api/City/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "city",
+        "Type": "WebAPiDemo.Models.CityModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "GetCityDropDown",
+    "RelativePath": "api/City/cities",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "GetCityByStateID",
+    "RelativePath": "api/City/CityBy/{StateID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "CityDelete",
+    "RelativePath": "api/City/Delete/{CityID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "GetCityByID",
+    "RelativePath": "api/City/GetBy/{CityID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CityController",
+    "Method": "CityUpdate",
+    "RelativePath": "api/City/Update/{CityID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CityID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "city",
+        "Type": "WebAPiDemo.Models.CityModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "GetAllCountries",
+    "RelativePath": "api/Country",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "CountryInsert",
+    "RelativePath": "api/Country/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "country",
+        "Type": "WebAPiDemo.Models.CountryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "GetContries",
+    "RelativePath": "api/Country/countries",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "DeleteCountry",
+    "RelativePath": "api/Country/Delete/{CountryID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "SelectCountryByID",
+    "RelativePath": "api/Country/GetBy/{CountryID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "GetStatesByCountryID",
+    "RelativePath": "api/Country/States/{CountryID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.CountryController",
+    "Method": "CountryUpdate",
+    "RelativePath": "api/Country/Update/{CountryID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "country",
+        "Type": "WebAPiDemo.Models.CountryModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "GetAllPayments",
+    "RelativePath": "api/Payment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "PaymentInsert",
+    "RelativePath": "api/Payment/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "payment",
+        "Type": "HallBookingAPI.Models.PaymentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "GetPaymentByBookingID",
+    "RelativePath": "api/Payment/Booking/{BookingID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "DeletePayment",
+    "RelativePath": "api/Payment/Delete/{PaymentID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PaymentID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "GetPaymentByID",
+    "RelativePath": "api/Payment/GetBy/{PaymentID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PaymentID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "PaymentUpdate",
+    "RelativePath": "api/Payment/Update/{PaymentID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PaymentID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "payment",
+        "Type": "HallBookingAPI.Models.PaymentModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.PaymentController",
+    "Method": "GetPaymentByUserID",
+    "RelativePath": "api/Payment/User/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceController",
+    "Method": "GetAllResources",
+    "RelativePath": "api/Resource",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceController",
+    "Method": "DeleteResource",
+    "RelativePath": "api/Resource/Delete/{ResourceID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceController",
+    "Method": "GetResourceByID",
+    "RelativePath": "api/Resource/GetBy/{ResourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceController",
+    "Method": "GetResourceByUserID",
+    "RelativePath": "api/Resource/GetBy/User/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceController",
+    "Method": "GetTopResources",
+    "RelativePath": "api/Resource/Top",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "ImageInsert",
+    "RelativePath": "api/ResourceImage/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resourceImage",
+        "Type": "HallBookingAPI.Models.ResourceImageModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "DeleteImage",
+    "RelativePath": "api/ResourceImage/Delete/{ImageID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ImageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "GetImageByID",
+    "RelativePath": "api/ResourceImage/GetBy/{ImageID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ImageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "GetAllImageByResourceID",
+    "RelativePath": "api/ResourceImage/ImagesBy/{ResourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "GetAllImageByOwnerID",
+    "RelativePath": "api/ResourceImage/ImagesByOwner/{OwnerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OwnerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ResourceImageController",
+    "Method": "ImageUpdate",
+    "RelativePath": "api/ResourceImage/Update/{ImageID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ImageID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "resourceImage",
+        "Type": "HallBookingAPI.Models.ResourceImageModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "GetAllReviews",
+    "RelativePath": "api/Review",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "GetReviewByID",
+    "RelativePath": "api/Review/{ReviewID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ReviewID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "ReviewInsert",
+    "RelativePath": "api/Review/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "review",
+        "Type": "HallBookingAPI.Models.ReviewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/Review/Delete/{ReviewID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ReviewID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "GetAllReviewByOwnerID",
+    "RelativePath": "api/Review/Owner/{OwnerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OwnerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "GetAllReviewByResource",
+    "RelativePath": "api/Review/Resource/{ResourceID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ResourceID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "ReviewUpdate",
+    "RelativePath": "api/Review/Update/{ReviewID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ReviewID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "review",
+        "Type": "HallBookingAPI.Models.ReviewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.ReviewController",
+    "Method": "GetAllReviewByUser",
+    "RelativePath": "api/Review/User/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "GetAllStates",
+    "RelativePath": "api/State",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "StateInsert",
+    "RelativePath": "api/State/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "state",
+        "Type": "WebAPiDemo.Models.StateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "DeleteState",
+    "RelativePath": "api/State/Delete/{StateID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "SelectStateByID",
+    "RelativePath": "api/State/GetBy/{StateID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "GetStateDropDown",
+    "RelativePath": "api/State/states",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "GetStateByCountryID",
+    "RelativePath": "api/State/StatesBy/{CountryID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CountryID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebAPiDemo.Controllers.StateController",
+    "Method": "StateUpdate",
+    "RelativePath": "api/State/Update/{StateID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "StateID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "state",
+        "Type": "WebAPiDemo.Models.StateModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "GetAllUser",
+    "RelativePath": "api/Users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/Delete/{UserID}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "GetUserByID",
+    "RelativePath": "api/Users/GetBy/{UserID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "UserInsert",
+    "RelativePath": "api/Users/Register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "HallBookingAPI.Models.UsersModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "UserUpdate",
+    "RelativePath": "api/Users/Update/{UserID}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "HallBookingAPI.Models.UsersModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "GetUserDropDown",
+    "RelativePath": "api/Users/UserDropDown/{OwnerID}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "OwnerID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[HallBookingAPI.WeatherForecast, HallBookingAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
