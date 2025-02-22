@@ -23,8 +23,12 @@ namespace HallBookingAPI.Models
         public string FullName { get; set; }
     }
 
-   
-
+    public class UserLoginModel
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
+    }
 
     public class UserModelValidator : AbstractValidator<UsersModel>
     {
@@ -54,10 +58,27 @@ namespace HallBookingAPI.Models
 
             RuleFor(user => user.Role)
                 .NotEmpty().NotNull().WithMessage("Role is required.")
-                 .Must(role => new[] { "Owner", "Admin", "User"}.Contains(role))
+                 .Must(role => new[] { "Owner", "Admin", "User" }.Contains(role))
                 .WithMessage("Invalid Role value.");
         }
     }
 
-    
+    public class UserLoginModelValidator : AbstractValidator<UserLoginModel>
+    {
+        public UserLoginModelValidator()
+        {
+            RuleFor(user => user.Email)
+                .NotEmpty().WithMessage("Email is required.")
+                .NotEqual("example@gmai.com").WithMessage("Email can not be example@gmail.com")
+                .EmailAddress().WithMessage("Invalid email format.");
+
+            RuleFor(user => user.Password)
+                .NotEmpty().NotNull().WithMessage("Password is required.")
+                .MinimumLength(8).WithMessage("Password must be at least 8 characters long.")
+                .MaximumLength(20).WithMessage("Password must not exceed 20 characters.");
+            RuleFor(user => user.Role)
+                .NotEmpty().NotNull().WithMessage("Role is required.");
+        }
+    }
+
 }

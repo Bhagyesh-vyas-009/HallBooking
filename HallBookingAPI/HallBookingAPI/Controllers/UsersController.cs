@@ -93,5 +93,47 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
+        #region Login
+        [HttpPost("Login")]
+        public IActionResult Login([FromBody] UserLoginModel userLoginModel)
+        {
+
+            if (userLoginModel == null)
+            {
+                return BadRequest(new { message = "Invalid request data" });
+            }
+            var userData = _usersRepository.AuthenticateUser(userLoginModel);
+            if (userData == null)
+            {
+                return Unauthorized(new { message = "Please enter valid Email and password and Role" });
+            }
+
+            var claims = new[]
+            {
+                    new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"] ),
+                    new Claim(JwtRegisteredClaimNames.Jti,  Guid.NewGuid().ToString()),
+                    new Claim("UserID", userData.UserID.ToString()),
+                    new Claim("Email", userData.Email.ToString()),
+                    new Claim("FullName", userData.FullName.ToString()),
+                    new Claim("isAdmin", userData.IsAdmin.ToString()),
+                    new Claim(ClaimTypes.Role, userData.Role.ToString()),
+
+                };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddDays(7),
+                signingCredentials: signIn
+                );
+
+            string tockenValue = new JwtSecurityTokenHandler().WriteToken(token);
+            return Ok(new { Token = tockenValue, User = userData, Message = "User Login Successfully" });
+        }
+        #endregion
+
     }
 }

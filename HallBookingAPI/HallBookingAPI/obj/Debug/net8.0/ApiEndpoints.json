@@ -945,6 +945,22 @@
   },
   {
     "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "Login",
+    "RelativePath": "api/Users/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userLoginModel",
+        "Type": "HallBookingAPI.Models.UserLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
     "Method": "UserInsert",
     "RelativePath": "api/Users/Register",
     "HttpMethod": "POST",

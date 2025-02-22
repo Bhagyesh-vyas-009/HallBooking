@@ -151,6 +151,45 @@ namespace HallBookingAPI.Data
         }
         #endregion
 
+        #region AuthenticateUser
+        public UsersModel AuthenticateUser(UserLoginModel user)
+        {
+            //try
+            //{
+            string passwordHash = HashPassword(user.Password);
+            UsersModel userData = null;
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "PR_Users_Login";
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@Password", passwordHash);
+                    cmd.Parameters.AddWithValue("@Role", user.Role);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            userData = new UsersModel
+                            {
+                                UserID = Convert.ToInt32(reader["UserID"]),
+                                FullName = reader["FullName"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                IsAdmin = Convert.ToBoolean(reader["isAdmin"]),
+                                Role = reader["Role"].ToString(),
+                            };
+                        }
+                    }
+                }
+            }
+            return userData;
+        }
+        #endregion
+
         #region UserDropDown
         public IEnumerable<UserDropDownModel> UserDropDown(int OwnerID)
         {
