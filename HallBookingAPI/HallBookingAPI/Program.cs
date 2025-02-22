@@ -102,6 +102,12 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 50 * 1024 * 1024;
+});
+
+
 
 var app = builder.Build();
 

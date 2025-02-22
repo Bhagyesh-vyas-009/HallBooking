@@ -63,6 +63,20 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
+        #region UploadPropertyWithImages
+        [HttpPost("UploadPropertyWithImages")]
+        public async Task<IActionResult> UploadPropertyWithImages([FromForm] ResourceUploadModel resourceUpload)
+        {
+            if (resourceUpload.Images == null || resourceUpload.Images.Count == 0)
+            {
+                return BadRequest("No images provided.");
+            }
+            _resourceRepository.UploadResourceWithImage(resourceUpload);
+            return Ok(new { message = "Resource uploaded successfully." });
+            //return Ok("inserted");
+        }
+        #endregion
+
         #region DeleteResource
         [HttpDelete("Delete/{ResourceID}")]
         public IActionResult DeleteResource(int ResourceID)
@@ -74,6 +88,8 @@ namespace HallBookingAPI.Controllers
             return StatusCode(200, new { message = "Deleted" });
         }
         #endregion
+
+
         
     }
 }

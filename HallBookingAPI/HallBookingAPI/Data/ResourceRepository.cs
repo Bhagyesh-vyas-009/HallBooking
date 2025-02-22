@@ -60,8 +60,8 @@ namespace HallBookingAPI.Data
         }
         #endregion
 
-            #region GetTop10Resources
-            public IEnumerable<ResourceDetailModel> GetTop10Resources()
+        #region GetTop10Resources
+        public IEnumerable<ResourceDetailModel> GetTop10Resources()
             {
                 List<ResourceDetailModel> resources = new List<ResourceDetailModel>();
 
@@ -103,8 +103,8 @@ namespace HallBookingAPI.Data
             }
             #endregion
 
-            #region GetResourcesByUserID
-            public IEnumerable<ResourceDetailModel> GetResourcesByUserID(int UserID)
+        #region GetResourcesByUserID
+        public IEnumerable<ResourceDetailModel> GetResourcesByUserID(int UserID)
             {
                 List<ResourceDetailModel> resources = new List<ResourceDetailModel>();
 
@@ -145,10 +145,10 @@ namespace HallBookingAPI.Data
                 }
                 return resources;
             }
-            #endregion
+        #endregion
 
-            #region SelectResourceByPK
-            public ResourceUploadModel SelectResourceByPK(int ResourceID)
+        #region SelectResourceByPK
+        public ResourceUploadModel SelectResourceByPK(int ResourceID)
             {
                 ResourceUploadModel resource = null;
 
@@ -189,10 +189,10 @@ namespace HallBookingAPI.Data
                 }
                 return resource;
             }
-            #endregion
+        #endregion
 
-            #region DeleteResource
-            public bool DeleteResource(int resourceID)
+        #region DeleteResource
+        public bool DeleteResource(int resourceID)
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
@@ -206,7 +206,81 @@ namespace HallBookingAPI.Data
                     return rowsAffected > 0;
                 }
             }
-            #endregion
-        
+        #endregion
+
+        #region UploadResourceWithImage
+        public async Task UploadResourceWithImage(ResourceUploadModel resource)
+        {
+
+            try
+            {
+                var imagePaths = new List<string>();
+                //var propertyId;
+                var uploadsFolder = Path.Combine(_environment.ContentRootPath, "Images");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                foreach (var image in resource.Images)
+                {
+                    image.OpenReadStream().Seek(0, SeekOrigin.Begin);
+                    var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(image.FileName)}";
+                    if (string.IsNullOrEmpty(uploadsFolder) || string.IsNullOrEmpty(uniqueFileName))
+                    {
+                        throw new ArgumentNullException("Path components cannot be null.");
+                    }
+                    var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        image.CopyTo(fileStream);
+                    }
+
+                    imagePaths.Add(Path.Combine("Images", uniqueFileName).Replace("\\", "/"));
+                }
+
+                var imagePathsJson = JsonConvert.SerializeObject(imagePaths);
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var cmd = new SqlCommand("PR_Resource_AddResourceWithImages", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    cmd.Parameters.AddWithValue("@ResourceType", resource.ResourceType);
+                    cmd.Parameters.AddWithValue("@Name", resource.Name);
+                    cmd.Parameters.AddWithValue("@Location", resource.Location);
+                    cmd.Parameters.AddWithValue("@CountryID", resource.CountryID);
+                    cmd.Parameters.AddWithValue("@StateID", resource.StateID);
+                    cmd.Parameters.AddWithValue("@CityID", resource.CityID);
+                    cmd.Parameters.AddWithValue("@PinCode", resource.PinCode);
+                    cmd.Parameters.AddWithValue("@Capacity", resource.Capacity);
+                    cmd.Parameters.AddWithValue("@Description", resource.Description);
+                    cmd.Parameters.AddWithValue("@PricePerDay", resource.PricePerDay);
+                    cmd.Parameters.AddWithValue("@OpenHours", resource.OpenHours);
+                    cmd.Parameters.AddWithValue("@CloseHours", resource.CloseHours);
+                    cmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
+                    cmd.Parameters.AddWithValue("@Latitude", resource.Latitude);
+                    cmd.Parameters.AddWithValue("@Longitude", resource.Longitude);
+                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@UserID", resource.UserID);
+                    cmd.Parameters.AddWithValue("@ImagePaths", imagePathsJson);
+
+                    await connection.OpenAsync();
+                    var propertyId = await cmd.ExecuteReaderAsync();
+                    foreach (var image in imagePathsJson)
+                    {
+                        Console.Write(image.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+        #endregion
+
     }
 }

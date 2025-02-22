@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HallBookingAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aabc6923b9c5e2adef8011d9dbd392a8cf27d617")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+856d4f87d640faf3210deaba5243b2f610f7cd55")]
 [assembly: System.Reflection.AssemblyProductAttribute("HallBookingAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HallBookingAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
