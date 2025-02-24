@@ -215,6 +215,25 @@ namespace HallBookingAPI.Data
         }
         #endregion
 
+        #region ChangePassword
+        public bool ChangePassword(ChangePasswordModel model)
+        {
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("PR_Users_ChangePassword", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserID", model.UserID);
+                    cmd.Parameters.AddWithValue("@NewPasswordHash", HashPassword(model.NewPassword));
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+        #endregion
+
         #region HashPassword
         private string HashPassword(string password)
         {

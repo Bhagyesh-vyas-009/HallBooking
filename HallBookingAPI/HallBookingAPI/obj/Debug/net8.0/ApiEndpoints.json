@@ -1008,6 +1008,22 @@
   },
   {
     "ContainingType": "HallBookingAPI.Controllers.UsersController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Users/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "HallBookingAPI.Models.ChangePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.UsersController",
     "Method": "DeleteUser",
     "RelativePath": "api/Users/Delete/{UserID}",
     "HttpMethod": "DELETE",

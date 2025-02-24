@@ -29,7 +29,11 @@ namespace HallBookingAPI.Models
         public string Password { get; set; }
         public string Role { get; set; }
     }
-
+    public class ChangePasswordModel
+    {
+        public int UserID { get; set; }
+        public string NewPassword { get; set; }
+    }
     public class UserModelValidator : AbstractValidator<UsersModel>
     {
         public UserModelValidator()

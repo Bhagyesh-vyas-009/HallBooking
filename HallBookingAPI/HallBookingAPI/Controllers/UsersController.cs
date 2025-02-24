@@ -141,5 +141,20 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
+        #region ChangePassword
+        [HttpPost("ChangePassword")]
+        public IActionResult ChangePassword([FromBody] ChangePasswordModel model)
+        {
+            if (model == null || string.IsNullOrWhiteSpace(model.NewPassword))
+                return BadRequest("Invalid input.");
+
+            bool isUpdated = _usersRepository.ChangePassword(model);
+
+            if (isUpdated)
+                return Ok(new { message = "Password updated successfully." });
+            else
+                return BadRequest("Failed to update password.");
+        }
+        #endregion
     }
 }
