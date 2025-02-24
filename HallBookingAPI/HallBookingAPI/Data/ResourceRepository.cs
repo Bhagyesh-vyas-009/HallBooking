@@ -282,5 +282,89 @@ namespace HallBookingAPI.Data
         }
         #endregion
 
+        #region UpdateResourceWithImage
+        public async Task UpdateResourceWithImage(ResourceUploadModel resource)
+        {
+            try
+            {
+                var imagePaths = new List<string>();
+                var uploadsFolder = Path.Combine(_environment.ContentRootPath, "Images");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var cmd = new SqlCommand("PR_ResourceImage_SelectAllByResourceID", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.AddWithValue("@ResourceID", resource.ResourceID);
+                    await connection.OpenAsync();
+                    var reader = await cmd.ExecuteReaderAsync();
+
+                    var existingImages = new List<string>();
+                    while (reader.Read())
+                    {
+                        existingImages.Add(reader["ImagePath"].ToString());
+                    }
+                    await reader.CloseAsync();
+
+                    if (resource.Images != null && resource.Images.Count > 0)
+                    {
+                        foreach (var image in resource.Images)
+                        {
+                            image.OpenReadStream().Seek(0, SeekOrigin.Begin);
+                            var uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(image.FileName)}";
+                            var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                            using (var fileStream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await image.CopyToAsync(fileStream);
+                            }
+                            imagePaths.Add(Path.Combine("Images", uniqueFileName).Replace("\\", "/"));
+                        }
+                    }
+                    else
+                    {
+                        imagePaths = existingImages;
+                    }
+
+                    var imagePathsJson = JsonConvert.SerializeObject(imagePaths);
+                    var updateCmd = new SqlCommand("PR_Resource_UpdateResourceWithImages", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    updateCmd.Parameters.AddWithValue("@ResourceID", resource.ResourceID);
+                    updateCmd.Parameters.AddWithValue("@ResourceType", resource.ResourceType);
+                    updateCmd.Parameters.AddWithValue("@Name", resource.Name);
+                    updateCmd.Parameters.AddWithValue("@Location", resource.Location);
+                    updateCmd.Parameters.AddWithValue("@CountryID", resource.CountryID);
+                    updateCmd.Parameters.AddWithValue("@StateID", resource.StateID);
+                    updateCmd.Parameters.AddWithValue("@CityID", resource.CityID);
+                    updateCmd.Parameters.AddWithValue("@PinCode", resource.PinCode);
+                    updateCmd.Parameters.AddWithValue("@Capacity", resource.Capacity);
+                    updateCmd.Parameters.AddWithValue("@Description", resource.Description);
+                    updateCmd.Parameters.AddWithValue("@PricePerDay", resource.PricePerDay);
+                    updateCmd.Parameters.AddWithValue("@OpenHours", resource.OpenHours);
+                    updateCmd.Parameters.AddWithValue("@CloseHours", resource.CloseHours);
+                    updateCmd.Parameters.AddWithValue("@IsAvailable", resource.IsAvailable);
+                    updateCmd.Parameters.AddWithValue("@Latitude", resource.Latitude);
+                    updateCmd.Parameters.AddWithValue("@Longitude", resource.Longitude);
+                    updateCmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+                    updateCmd.Parameters.AddWithValue("@UserID", resource.UserID);
+                    updateCmd.Parameters.AddWithValue("@ImagePaths", imagePathsJson);
+
+                    await updateCmd.ExecuteNonQueryAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        #endregion
     }
 }

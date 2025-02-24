@@ -4,6 +4,7 @@ using HallBookingAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Metrics;
 
 namespace HallBookingAPI.Controllers
 {
@@ -76,6 +77,22 @@ namespace HallBookingAPI.Controllers
             }
             _resourceRepository.UploadResourceWithImage(resourceUpload);
             return Ok(new { message = "Resource uploaded successfully." });
+            //return Ok("inserted");
+        }
+        #endregion
+
+
+        #region UpdatePropertyWithImages
+        [Authorize(Roles = "Owner")]
+        [HttpPut("UpdatePropertyWithImages/{ResourceID}")]
+        public async Task<IActionResult> UpdatePropertyWithImages(int ResourceID,[FromForm] ResourceUploadModel resourceUpload)
+        {
+            if (resourceUpload == null || ResourceID != resourceUpload.ResourceID)
+            {
+                return BadRequest();
+            }
+            _resourceRepository.UploadResourceWithImage(resourceUpload);
+            return Ok(new { message = "Resource updated successfully." });
             //return Ok("inserted");
         }
         #endregion
