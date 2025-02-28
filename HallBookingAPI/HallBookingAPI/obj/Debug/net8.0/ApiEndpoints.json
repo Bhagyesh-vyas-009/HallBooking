@@ -144,6 +144,22 @@
   },
   {
     "ContainingType": "HallBookingAPI.Controllers.BookingController",
+    "Method": "SendHallBookingEmail",
+    "RelativePath": "api/Booking/send-hall-booking-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HallBookingAPI.Models.HallBookingRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HallBookingAPI.Controllers.BookingController",
     "Method": "BookingUpdate",
     "RelativePath": "api/Booking/Update/{BookingID}",
     "HttpMethod": "PUT",

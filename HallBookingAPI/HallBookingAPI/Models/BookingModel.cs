@@ -46,6 +46,19 @@ namespace HallBookingAPI.Models
         public DateTime ToDate { get; set; }
     }
 
+    public class HallBookingRequest
+    {
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string HallName { get; set; }
+        public string BookingDate { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public string Location { get; set; }
+        public string Amount { get; set; }
+        public string PaymentStatus { get; set; }
+    }
+
 
     public class BookingModelValidator : AbstractValidator<BookingModel>
     {

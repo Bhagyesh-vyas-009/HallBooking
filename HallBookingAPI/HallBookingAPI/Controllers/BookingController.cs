@@ -151,6 +151,18 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
+        [HttpPost("send-hall-booking-email")]
+        public IActionResult SendHallBookingEmail([FromBody] HallBookingRequest request)
+        {
+            bool isSent = _bookingRepository.SendHallBookingConfirmation(
+                request.Email, request.UserName, request.HallName, request.BookingDate,
+                request.StartTime, request.EndTime, request.Location, request.Amount, request.PaymentStatus
+            );
 
+            if (isSent)
+                return Ok(new { message = "Email sent successfully!" });
+            else
+                return BadRequest(new { message = "Failed to send email." });
+        }
     }
 }

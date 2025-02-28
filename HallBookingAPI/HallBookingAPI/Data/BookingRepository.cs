@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace HallBookingAPI.Data
@@ -456,5 +458,53 @@ namespace HallBookingAPI.Data
             return bookedDates;
         }
         #endregion
+
+        public bool SendHallBookingConfirmation(string email, string userName, string hallName, string bookingDate, string fromDate, string toDate, string location, string amount, string paymentStatus)
+        {
+            try
+            {
+                var smtpClient = new SmtpClient("smtp.mr.toxic781@gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("mr.toxic781@gmail.com", "Toxic781"),
+                    EnableSsl = true,
+                };
+
+                string emailBody = $@"
+                <html>
+                <body>
+                    <p>Dear {userName},</p>
+                    <p>Thank you for booking <strong>{hallName}</strong>. We are pleased to confirm your reservation:</p>
+                    <h3>Booking Details:</h3>
+                    <ul>
+                        <li><strong>Hall Name:</strong> {hallName}</li>
+                        <li><strong>Booking Date:</strong> {bookingDate}</li>
+                        <li><strong>Date:</strong> {fromDate} - {toDate}</li>
+                        <li><strong>Location:</strong> {location}</li>
+                        <li><strong>Total Amount:</strong> {amount}</li>
+                        <li><strong>Payment Status:</strong> {paymentStatus}</li>
+                    </ul>
+                    <p>If you need any assistance, please contact us at <a href='mailto:support@example.com'>mr.toxic781@gmail.com</a>.</p>
+                    <p>Best Regards,<br/><strong>Your Company/Hall Name</strong></p>
+                </body>
+                </html>";
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("your-email@example.com"),
+                    Subject = "Hall Booking Confirmation - " + hallName,
+                    Body = emailBody,
+                    IsBodyHtml = true,
+                };
+                mailMessage.To.Add(email);
+
+                smtpClient.Send(mailMessage);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
