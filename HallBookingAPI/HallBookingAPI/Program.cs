@@ -55,6 +55,7 @@ builder.Services.AddScoped<ResourceImageRepository>();
 builder.Services.AddScoped<CountryRepository>();
 builder.Services.AddScoped<StateRepository>();
 builder.Services.AddScoped<CityRepository>();
+builder.Services.AddScoped<DashboardRepository>();
 
 
 builder.Services.AddAuthentication(options =>
