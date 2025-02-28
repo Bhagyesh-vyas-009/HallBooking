@@ -17,6 +17,19 @@ namespace HallBookingAPI.Models
         public DateTime UpdatedAt { get; set; }
     }
 
+    public class UserUpdateModel
+    {
+
+        public int UserID { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public bool IsAdmin { get; set; }
+        public string Role { get; set; }
+        //public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+    }
+
     public class UserDropDownModel
     {
         public int UserID { get; set; }

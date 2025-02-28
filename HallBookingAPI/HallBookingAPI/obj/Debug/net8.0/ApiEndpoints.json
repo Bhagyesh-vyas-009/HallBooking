@@ -1217,7 +1217,7 @@
       },
       {
         "Name": "user",
-        "Type": "HallBookingAPI.Models.UsersModel",
+        "Type": "HallBookingAPI.Models.UserUpdateModel",
         "IsRequired": true
       }
     ],

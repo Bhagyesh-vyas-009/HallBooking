@@ -69,7 +69,7 @@ namespace HallBookingAPI.Data
                         FullName = sdr["FullName"].ToString(),
                         Email = sdr["Email"].ToString(),
                         //Password = passwordHash,
-                        Password = sdr["Password"].ToString(),
+                        //Password = sdr["Password"].ToString(),
                         PhoneNumber = sdr["PhoneNumber"].ToString(),
                         IsAdmin = Convert.ToBoolean(sdr["isAdmin"]),
                         Role = sdr["Role"].ToString(),
@@ -126,7 +126,7 @@ namespace HallBookingAPI.Data
         #endregion
 
         #region UpdateUser
-        public bool UpdateUser(UsersModel user)
+        public bool UpdateUser(UserUpdateModel user)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -138,7 +138,7 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@UserID", user.UserID);
                 cmd.Parameters.AddWithValue("@FullName", user.FullName);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
-                cmd.Parameters.AddWithValue("@Password", user.Password);
+                //cmd.Parameters.AddWithValue("@Password", user.Password);
                 cmd.Parameters.AddWithValue("@PhoneNumber", user.PhoneNumber);
                 cmd.Parameters.AddWithValue("@IsAdmin", user.IsAdmin);
                 //cmd.Parameters.AddWithValue("@Address", user.Address);

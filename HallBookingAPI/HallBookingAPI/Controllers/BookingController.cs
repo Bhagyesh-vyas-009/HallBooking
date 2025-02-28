@@ -133,7 +133,7 @@ namespace HallBookingAPI.Controllers
         {
             try
             {
-                var bookedDateRanges = await _bookingRepository.GetBookedDateRangesAsync(ResourceID);
+                var bookedDateRanges = await _bookingRepository.GetBookedDateRanges(ResourceID);
 
                 if (bookedDateRanges == null || bookedDateRanges.Count == 0)
                 {

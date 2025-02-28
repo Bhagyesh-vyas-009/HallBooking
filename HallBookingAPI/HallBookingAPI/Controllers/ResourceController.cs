@@ -26,7 +26,6 @@ namespace HallBookingAPI.Controllers
 
         #region GetAllResources
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
         public IActionResult GetAllResources()
         {
             var resources = _resourceRepository.GetAllResources();
@@ -91,8 +90,8 @@ namespace HallBookingAPI.Controllers
             {
                 return BadRequest();
             }
-            _resourceRepository.UploadResourceWithImage(resourceUpload);
-            return Ok(new { message = "Resource updated successfully." });
+            _resourceRepository.UpdateResourceWithImage(resourceUpload);
+            return Ok(new { message = "Resource updated  successfully." });
             //return Ok("inserted");
         }
         #endregion

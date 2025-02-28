@@ -423,6 +423,38 @@ namespace HallBookingAPI.Data
 
             return bookedDateRanges;
         }
+
+        public async Task<List<BookedDateRangeDto>> GetBookedDateRanges(int ResourceID)
+        {
+            var bookedDates = new List<BookedDateRangeDto>();
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("GetBookedDateRanges", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ResourceID", ResourceID);
+
+                    await connection.OpenAsync();
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            var fromDate = reader.GetDateTime(reader.GetOrdinal("FromDate"));
+                            var toDate = reader.GetDateTime(reader.GetOrdinal("ToDate"));
+
+                            bookedDates.Add(new BookedDateRangeDto
+                            {
+                                FromDate = fromDate,
+                                ToDate = toDate
+                            });
+                        }
+                    }
+                }
+            }
+
+            return bookedDates;
+        }
         #endregion
     }
 }

@@ -84,7 +84,7 @@ namespace HallBookingAPI.Controllers
         #region UserUpdate
         [Authorize]
         [HttpPut("Update/{UserID}")]
-        public IActionResult UserUpdate(int UserID, [FromBody] UsersModel user)
+        public IActionResult UserUpdate(int UserID, [FromBody] UserUpdateModel user)
         {
             var isUpdated = _usersRepository.UpdateUser(user);
             if (user == null || UserID != user.UserID)
