@@ -22,6 +22,7 @@ namespace HallBookingAPI.Models
         public int BookingID { get; set; }
         public int UserID { get; set; }
         public string? FullName { get; set; }
+        public string? Email { get; set; }
         public string ResourceName { get; set; }
         public string ResourceType { get; set; }
         public string Location { get; set; }
@@ -55,8 +56,9 @@ namespace HallBookingAPI.Models
         public string StartTime { get; set; }
         public string EndTime { get; set; }
         public string Location { get; set; }
-        public string Amount { get; set; }
+        public int Amount { get; set; }
         public string PaymentStatus { get; set; }
+        public string BookingStatus { get; set; }
     }
 
 

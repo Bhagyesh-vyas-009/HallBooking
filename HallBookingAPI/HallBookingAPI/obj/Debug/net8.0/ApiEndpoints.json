@@ -145,7 +145,7 @@
   {
     "ContainingType": "HallBookingAPI.Controllers.BookingController",
     "Method": "SendHallBookingEmail",
-    "RelativePath": "api/Booking/send-hall-booking-email",
+    "RelativePath": "api/Booking/sendbookingemail",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

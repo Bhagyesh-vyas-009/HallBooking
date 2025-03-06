@@ -363,3 +363,8 @@ D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\obj\Debu
 D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\obj\Debug\net8.0\HallBookingAPI.pdb
 D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\obj\Debug\net8.0\HallBookingAPI.genruntimeconfig.cache
 D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\obj\Debug\net8.0\ref\HallBookingAPI.dll
+D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\MailKit.dll
+D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\MimeKit.dll
+D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\6-662\Adv Dot Net Projects\HallBooking\HallBookingAPI\HallBookingAPI\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll

@@ -14,48 +14,50 @@ namespace HallBookingAPI.Data
         private readonly string _connectionString;
 
         public BookingRepository(IConfiguration connectionString)
-            {
-                _connectionString = connectionString.GetConnectionString("ConnectionString");
-            }
+        {
+            _connectionString = connectionString.GetConnectionString("ConnectionString");
+        }
         #endregion
 
         #region GetAllBookings
         public IEnumerable<UserBookingModel> GetAllBookings()
+        {
+            List<UserBookingModel> bookings = new List<UserBookingModel>();
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                List<UserBookingModel> bookings = new List<UserBookingModel>();
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PR_Bookings_SelectAll";
+                SqlDataReader sdr = cmd.ExecuteReader();
 
-                using (SqlConnection conn = new SqlConnection(_connectionString))
+                while (sdr.Read())
                 {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "PR_Bookings_SelectAll";
-                    SqlDataReader sdr = cmd.ExecuteReader();
-
-                    while (sdr.Read())
+                    bookings.Add(new UserBookingModel()
                     {
-                        bookings.Add(new UserBookingModel()
-                        {
-                            BookingID = Convert.ToInt32(sdr["BookingID"]),
-                            UserID = Convert.ToInt32(sdr["UserID"]),
-                            FullName = sdr["FullName"].ToString(),
-                            ResourceName = sdr["Name"].ToString(),
-                            ResourceType = sdr["ResourceType"].ToString(),
-                            Location = sdr["Location"].ToString(),
-                            PricePerDay = Convert.ToInt32(sdr["PricePerDay"]),
-                            BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
-                            FromDate = Convert.ToDateTime(sdr["FromDate"]),
-                            ToDate = Convert.ToDateTime(sdr["ToDate"]),
-                            TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
-                            Status = sdr["Status"].ToString(),
-                            CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
-                            UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
-                        });
-                    }
+                        BookingID = Convert.ToInt32(sdr["BookingID"]),
+                        UserID = Convert.ToInt32(sdr["UserID"]),
+                        FullName = sdr["FullName"].ToString(),
+                        Email = sdr["Email"].ToString(),
+                        ResourceName = sdr["Name"].ToString(),
+                        ResourceType = sdr["ResourceType"].ToString(),
+                        Location = sdr["Location"].ToString(),
+                        PricePerDay = Convert.ToInt32(sdr["PricePerDay"]),
+                        BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
+                        FromDate = Convert.ToDateTime(sdr["FromDate"]),
+                        ToDate = Convert.ToDateTime(sdr["ToDate"]),
+                        TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
+                        Status = sdr["Status"].ToString(),
+                        PaymentStatus = sdr["PaymentStatus"].ToString(),
+                        CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
+                        UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
+                    });
                 }
-
-                return bookings;
             }
+
+            return bookings;
+        }
         #endregion
 
         #region GetAllBookingsByUserID
@@ -69,7 +71,7 @@ namespace HallBookingAPI.Data
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "PR_Bookings_SelectBookingByUserID";
-                cmd.Parameters.AddWithValue("@UserID",UserID);
+                cmd.Parameters.AddWithValue("@UserID", UserID);
                 SqlDataReader sdr = cmd.ExecuteReader();
 
                 while (sdr.Read())
@@ -78,7 +80,8 @@ namespace HallBookingAPI.Data
                     {
                         BookingID = Convert.ToInt32(sdr["BookingID"]),
                         UserID = Convert.ToInt32(sdr["UserID"]),
-                        FullName= sdr["FullName"].ToString(),
+                        FullName = sdr["FullName"].ToString(),
+                        Email = sdr["Email"].ToString(),
                         ResourceName = sdr["Name"].ToString(),
                         ResourceType = sdr["ResourceType"].ToString(),
                         Location = sdr["Location"].ToString(),
@@ -88,6 +91,7 @@ namespace HallBookingAPI.Data
                         ToDate = Convert.ToDateTime(sdr["ToDate"]),
                         TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
                         Status = sdr["Status"].ToString(),
+                        PaymentStatus = sdr["PaymentStatus"].ToString(),
                         CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                         UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
                     });
@@ -118,6 +122,7 @@ namespace HallBookingAPI.Data
                         BookingID = Convert.ToInt32(sdr["BookingID"]),
                         UserID = Convert.ToInt32(sdr["UserID"]),
                         FullName = sdr["FullName"].ToString(),
+                        Email = sdr["Email"].ToString(),
                         ResourceName = sdr["Name"].ToString(),
                         ResourceType = sdr["ResourceType"].ToString(),
                         Location = sdr["Location"].ToString(),
@@ -125,8 +130,9 @@ namespace HallBookingAPI.Data
                         BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
                         FromDate = Convert.ToDateTime(sdr["FromDate"]),
                         ToDate = Convert.ToDateTime(sdr["ToDate"]),
-                        TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
+                        TotalPrice = Convert.ToDecimal(sdr["Amount"]),
                         Status = sdr["Status"].ToString(),
+                        PaymentStatus = sdr["PaymentStatus"].ToString(),
                         CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                         UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
                     });
@@ -158,6 +164,7 @@ namespace HallBookingAPI.Data
                         UserID = Convert.ToInt32(sdr["UserID"]),
                         ResourceName = sdr["Name"].ToString(),
                         FullName = sdr["FullName"].ToString(),
+                        Email = sdr["Email"].ToString(),
                         ResourceType = sdr["ResourceType"].ToString(),
                         Location = sdr["Location"].ToString(),
                         PricePerDay = Convert.ToInt32(sdr["PricePerDay"]),
@@ -166,6 +173,7 @@ namespace HallBookingAPI.Data
                         ToDate = Convert.ToDateTime(sdr["ToDate"]),
                         TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
                         Status = sdr["Status"].ToString(),
+                        PaymentStatus = sdr["PaymentStatus"].ToString(),
                         CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
                         UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
                     });
@@ -191,13 +199,13 @@ namespace HallBookingAPI.Data
 
                 while (sdr.Read())
                 {
-                    bookings=new UserBookingModel
+                    bookings = new UserBookingModel
                     {
                         ResourceName = sdr["Name"].ToString(),
                         ResourceType = sdr["ResourceType"].ToString(),
                         FullName = sdr["FullName"].ToString(),
                         Location = sdr["Location"].ToString(),
-                        PinCode= Convert.ToInt32(sdr["PinCode"]),
+                        PinCode = Convert.ToInt32(sdr["PinCode"]),
                         PricePerDay = Convert.ToInt32(sdr["PricePerDay"]),
                         BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
                         FromDate = Convert.ToDateTime(sdr["FromDate"]),
@@ -215,108 +223,108 @@ namespace HallBookingAPI.Data
 
         #region SelectBookingByPK
         public BookingModel SelectBookingByPK(int BookingID)
+        {
+            BookingModel booking = null;
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                BookingModel booking = null;
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PR_Bookings_SelectByPK";
+                cmd.Parameters.AddWithValue("@BookingID", BookingID);
 
-                using (SqlConnection conn = new SqlConnection(_connectionString))
+                SqlDataReader sdr = cmd.ExecuteReader();
+                if (sdr.Read())
                 {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "PR_Bookings_SelectByPK";
-                    cmd.Parameters.AddWithValue("@BookingID", BookingID);
-
-                    SqlDataReader sdr = cmd.ExecuteReader();
-                    if (sdr.Read())
+                    booking = new BookingModel
                     {
-                        booking = new BookingModel
-                        {
-                            BookingID = Convert.ToInt32(sdr["BookingID"]),
-                            UserID = Convert.ToInt32(sdr["UserID"]),
-                            ResourceID = Convert.ToInt32(sdr["ResourceID"]),
-                            BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
-                            FromDate = Convert.ToDateTime(sdr["FromDate"]),
-                            ToDate = Convert.ToDateTime(sdr["ToDate"]),
-                            TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
-                            Status = sdr["Status"].ToString(),
-                            CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
-                            UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
-                        };
-                    }
+                        BookingID = Convert.ToInt32(sdr["BookingID"]),
+                        UserID = Convert.ToInt32(sdr["UserID"]),
+                        ResourceID = Convert.ToInt32(sdr["ResourceID"]),
+                        BookingDate = Convert.ToDateTime(sdr["BookingDate"]),
+                        FromDate = Convert.ToDateTime(sdr["FromDate"]),
+                        ToDate = Convert.ToDateTime(sdr["ToDate"]),
+                        TotalPrice = Convert.ToDecimal(sdr["TotalPrice"]),
+                        Status = sdr["Status"].ToString(),
+                        CreatedAt = Convert.ToDateTime(sdr["CreatedAt"]),
+                        UpdatedAt = Convert.ToDateTime(sdr["UpdatedAt"])
+                    };
                 }
-
-                return booking;
             }
+
+            return booking;
+        }
         #endregion
 
         #region DeleteBooking
         public bool DeleteBooking(int bookingID)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "PR_Bookings_Delete";
-                    cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PR_Bookings_Delete";
+                cmd.Parameters.AddWithValue("@BookingID", bookingID);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
             }
+        }
         #endregion
 
         #region InsertBooking
         public bool InsertBooking(BookingModel booking)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "PR_Bookings_INSERT";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PR_Bookings_INSERT";
 
-                    cmd.Parameters.AddWithValue("@UserID", booking.UserID);
-                    cmd.Parameters.AddWithValue("@ResourceID", booking.ResourceID);
+                cmd.Parameters.AddWithValue("@UserID", booking.UserID);
+                cmd.Parameters.AddWithValue("@ResourceID", booking.ResourceID);
                 //cmd.Parameters.Add("@BookingDate",SqlDbType.DateTime).Value=DBNull.Value;
-                    cmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@FromDate", booking.FromDate);
-                    cmd.Parameters.AddWithValue("@ToDate", booking.ToDate);
-                    cmd.Parameters.AddWithValue("@TotalPrice", booking.TotalPrice);
-                    cmd.Parameters.AddWithValue("@Status", booking.Status);
-                    cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+                cmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@FromDate", booking.FromDate);
+                cmd.Parameters.AddWithValue("@ToDate", booking.ToDate);
+                cmd.Parameters.AddWithValue("@TotalPrice", booking.TotalPrice);
+                cmd.Parameters.AddWithValue("@Status", booking.Status);
+                cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
+                cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
             }
+        }
         #endregion
 
         #region UpdateBooking
         public bool UpdateBooking(BookingModel booking)
+        {
+            using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(_connectionString))
-                {
-                    conn.Open();
-                    SqlCommand cmd = conn.CreateCommand();
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.CommandText = "PR_Bookings_UPDATE";
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "PR_Bookings_UPDATE";
 
-                    cmd.Parameters.AddWithValue("@BookingID", booking.BookingID);
-                    cmd.Parameters.AddWithValue("@UserID", booking.UserID);
-                    cmd.Parameters.AddWithValue("@ResourceID", booking.ResourceID);
-                    cmd.Parameters.AddWithValue("@BookingDate", booking.BookingDate);
-                    cmd.Parameters.AddWithValue("@FromDate", booking.FromDate);
-                    cmd.Parameters.AddWithValue("@ToDate", booking.ToDate);
-                    cmd.Parameters.AddWithValue("@TotalPrice", booking.TotalPrice);
-                    cmd.Parameters.AddWithValue("@Status", booking.Status);
-                    cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
+                cmd.Parameters.AddWithValue("@BookingID", booking.BookingID);
+                cmd.Parameters.AddWithValue("@UserID", booking.UserID);
+                cmd.Parameters.AddWithValue("@ResourceID", booking.ResourceID);
+                cmd.Parameters.AddWithValue("@BookingDate", booking.BookingDate);
+                cmd.Parameters.AddWithValue("@FromDate", booking.FromDate);
+                cmd.Parameters.AddWithValue("@ToDate", booking.ToDate);
+                cmd.Parameters.AddWithValue("@TotalPrice", booking.TotalPrice);
+                cmd.Parameters.AddWithValue("@Status", booking.Status);
+                cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
 
                 int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
-                }
+                return rowsAffected > 0;
             }
+        }
         #endregion
 
         #region CancelBooking
@@ -329,7 +337,7 @@ namespace HallBookingAPI.Data
                 command.CommandType = System.Data.CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@BookingId", BookingID);
                 command.Parameters.AddWithValue("@Status", status);
-                command.Parameters.Add("@UpdatedAt",SqlDbType.DateTime).Value = DBNull.Value;
+                command.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
 
                 command.ExecuteNonQuery();
             }
@@ -459,52 +467,102 @@ namespace HallBookingAPI.Data
         }
         #endregion
 
-        public bool SendHallBookingConfirmation(string email, string userName, string hallName, string bookingDate, string fromDate, string toDate, string location, string amount, string paymentStatus)
+        public async Task<bool> SendHallBookingConfirmation(string email, string userName, string bookingStatus, string hallName, string bookingDate, string fromDate, string toDate, string location, int amount, string paymentStatus)
         {
-            try
-            {
-                var smtpClient = new SmtpClient("smtp.mr.toxic781@gmail.com")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential("mr.toxic781@gmail.com", "Toxic781"),
-                    EnableSsl = true,
-                };
+			try
+			{
+				using (var smtpClient = new SmtpClient("smtp.gmail.com"))
+				{
+					smtpClient.Port = 587;
+					smtpClient.Credentials = new NetworkCredential("mr.toxic781@gmail.com", "yplu apca urum hxid");
+					smtpClient.EnableSsl = true;
+                    //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                string emailBody = $@"
-                <html>
-                <body>
-                    <p>Dear {userName},</p>
-                    <p>Thank you for booking <strong>{hallName}</strong>. We are pleased to confirm your reservation:</p>
-                    <h3>Booking Details:</h3>
-                    <ul>
-                        <li><strong>Hall Name:</strong> {hallName}</li>
-                        <li><strong>Booking Date:</strong> {bookingDate}</li>
-                        <li><strong>Date:</strong> {fromDate} - {toDate}</li>
-                        <li><strong>Location:</strong> {location}</li>
-                        <li><strong>Total Amount:</strong> {amount}</li>
-                        <li><strong>Payment Status:</strong> {paymentStatus}</li>
-                    </ul>
-                    <p>If you need any assistance, please contact us at <a href='mailto:support@example.com'>mr.toxic781@gmail.com</a>.</p>
-                    <p>Best Regards,<br/><strong>Your Company/Hall Name</strong></p>
-                </body>
-                </html>";
+                    string emailBody = null;
+					if (bookingStatus == "Confirmed")
+					{
+						emailBody = $@"
+				<html>
+<body>
+	<p>Dear {userName},</p>
 
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress("your-email@example.com"),
-                    Subject = "Hall Booking Confirmation - " + hallName,
-                    Body = emailBody,
-                    IsBodyHtml = true,
-                };
-                mailMessage.To.Add(email);
+	<p>We are pleased to confirm your booking for <strong>{hallName}</strong>. Below are the details of your reservation:</p>
 
-                smtpClient.Send(mailMessage);
+	<h3>Booking Details:</h3>
+	<ul>
+		<li><strong>Hall Name:</strong> {hallName}</li>
+		<li><strong>Booking Date:</strong> {bookingDate}</li>
+		<li><strong>Date:</strong> {fromDate} - {toDate}</li>
+		<li><strong>Location:</strong> {location}</li>
+		<li><strong>Total Amount:</strong> {amount}</li>
+		<li><strong>Payment Status:</strong> {paymentStatus}</li>
+	</ul>
+
+	<p><strong>Next Steps:</strong></p>
+	<p>✔️ Please arrive at least <strong>30 minutes before</strong> your booking time.</p>
+	<p>✔️ Carry a valid <strong>ID proof</strong> for verification.</p>
+	<p>✔️ For any modifications, contact us at least <strong>24 hours in advance</strong>.</p>
+
+	<p>If you need any assistance, feel free to contact us at <a href='mailto:support@example.com'>mr.toxic781@gmail.com</a>.</p>
+
+	<p>Thank you for choosing us! We look forward to hosting you.</p>
+
+	<p>Best Regards,<br/><strong>Your Company/Hall Name</strong></p>
+</body>
+</html>
+";
+					}
+					else
+					{
+						emailBody = $@"
+				<html>
+<body>
+	<p>Dear {userName},</p>
+
+	<p>We regret to inform you that your booking for <strong>{hallName}</strong> has been <strong>cancelled</strong>. Below are the details of your cancelled reservation:</p>
+
+	<h3>Cancelled Booking Details:</h3>
+	<ul>
+		<li><strong>Hall Name:</strong> {hallName}</li>
+		<li><strong>Booking Date:</strong> {bookingDate}</li>
+		<li><strong>Date:</strong> {fromDate} - {toDate}</li>
+		<li><strong>Location:</strong> {location}</li>
+		<li><strong>Total Amount:</strong> {amount}</li>
+		<li><strong>Payment Status:</strong> {paymentStatus}</li>
+	</ul>
+
+
+	<p>We sincerely apologize for any inconvenience this may have caused. If this cancellation was unexpected or if you would like to rebook, please contact us as soon as possible.</p>
+
+	<p>If you have already made a payment, we will process your refund (if applicable) within the next <strong>5-7 business days</strong>. For any refund-related inquiries, please reach out to us.</p>
+
+	<p>If you have any questions or need further assistance, feel free to contact us at <a href='mailto:support@example.com'>mr.toxic781@gmail.com</a>.</p>
+
+	<p>Best Regards,<br/><strong>Your Company/Hall Name</strong></p>
+</body>
+</html>"
+	;
+					}
+
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress("mr.toxic781@gmail.com"),
+                        Subject = "Hall Booking Confirmation - " + hallName,
+                        Body = emailBody,
+                        IsBodyHtml = true,
+                    };
+                    mailMessage.To.Add(email);
+
+                    await smtpClient.SendMailAsync(mailMessage);
+                } // SmtpClient is disposed of automatically here
                 return true;
+
             }
-            catch (Exception)
-            {
-                return false;
-            }
+			catch (Exception ex)
+			{
+				Console.WriteLine("Error Sending Email: " + ex.Message);
+				return false;
+			}
         }
     }
 }

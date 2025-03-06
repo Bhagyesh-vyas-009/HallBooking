@@ -3,6 +3,7 @@ using HallBookingAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace HallBookingAPI.Controllers
 {
@@ -61,7 +62,7 @@ namespace HallBookingAPI.Controllers
 
         #region GetAllBookingByResourceID
         [HttpGet("BookingByResource/{ResourceID}")]
-        [Authorize(Roles = "Owner")]
+        [Authorize(Roles = "Owner,Admin")]
         public IActionResult GetAllBookingByResourceID(int ResourceID)
         {
             var bookings = _bookingRepository.GetAllBookingByResourceID(ResourceID);
@@ -151,18 +152,30 @@ namespace HallBookingAPI.Controllers
         }
         #endregion
 
-        [HttpPost("send-hall-booking-email")]
-        public IActionResult SendHallBookingEmail([FromBody] HallBookingRequest request)
+        #region SendHallBookingEmail
+        [Authorize(Roles = "Owner")]
+        [HttpPost("sendbookingemail")]
+        public async Task<IActionResult> SendHallBookingEmail([FromBody] HallBookingRequest request)
         {
-            bool isSent = _bookingRepository.SendHallBookingConfirmation(
-                request.Email, request.UserName, request.HallName, request.BookingDate,
-                request.StartTime, request.EndTime, request.Location, request.Amount, request.PaymentStatus
-            );
+            try
+            {
+                bool isSent = await _bookingRepository.SendHallBookingConfirmation(
+                    request.Email, request.UserName, request.BookingStatus, request.HallName, request.BookingDate,
+                    request.StartTime, request.EndTime, request.Location, request.Amount, request.PaymentStatus
+                );
 
-            if (isSent)
-                return Ok(new { message = "Email sent successfully!" });
-            else
-                return BadRequest(new { message = "Failed to send email." });
+                if (isSent)
+                    return Ok(new { message = "Email sent successfully!" });
+                else
+                    return StatusCode(500, new { message = "Failed to send email. Try again later." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in API: {ex.Message}");
+                return StatusCode(500, new { message = "Internal Server Error" });
+            }
         }
+        #endregion
+
     }
 }

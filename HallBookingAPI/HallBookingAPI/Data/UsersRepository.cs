@@ -108,7 +108,7 @@ namespace HallBookingAPI.Data
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.CommandText = "PR_Users_INSERT";
+                cmd.CommandText = "PR_Users_Insert";
 
                 cmd.Parameters.AddWithValue("@FullName", user.FullName);
                 cmd.Parameters.AddWithValue("@Email", user.Email);
@@ -117,7 +117,7 @@ namespace HallBookingAPI.Data
                 cmd.Parameters.AddWithValue("@isAdmin", user.IsAdmin);
                 cmd.Parameters.AddWithValue("@Role", user.Role);
                 cmd.Parameters.AddWithValue("@CreatedAt", DateTime.Now);
-                cmd.Parameters.AddWithValue("@UpdatedAt", DateTime.Now);
+                cmd.Parameters.Add("@UpdatedAt", SqlDbType.DateTime).Value = DBNull.Value;
 
                 int rowsAffected = cmd.ExecuteNonQuery();
                 return rowsAffected > 0;
