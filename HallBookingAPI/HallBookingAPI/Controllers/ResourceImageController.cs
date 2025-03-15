@@ -51,9 +51,9 @@ namespace HallBookingAPI.Controllers
         #region DeleteImage
         [Authorize(Roles = "Owner")]
         [HttpDelete("Delete/{ImageID}")]
-        public IActionResult DeleteImage(int ImageID)
+        public IActionResult DeleteImage(int ImageID,string imagePath)
         {
-            var isDeleted = _resourceImageRepository.DeleteImage(ImageID);
+            var isDeleted = _resourceImageRepository.DeleteImage(ImageID,imagePath);
             if (!isDeleted)
                 return NotFound();
             return NoContent();

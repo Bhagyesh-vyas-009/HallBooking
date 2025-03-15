@@ -8,10 +8,11 @@ namespace HallBookingAPI.Data
     {
         #region Congfiguration
         private readonly string _connectionString;
-
-        public ResourceImageRepository(IConfiguration connectionString)
+        private readonly IWebHostEnvironment _environment;
+        public ResourceImageRepository(IConfiguration connectionString, IWebHostEnvironment environment)
         {
             _connectionString = connectionString.GetConnectionString("ConnectionString");
+            _environment = environment;
         }
         #endregion
 
@@ -110,8 +111,15 @@ namespace HallBookingAPI.Data
         #endregion
 
         #region DeleteImage
-        public bool DeleteImage(int ImageID)
+        public bool DeleteImage(int ImageID,string imagePath)
         {
+            var fullPath = Path.Combine(_environment.ContentRootPath, imagePath);
+
+            // Check if file exists and delete it
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();

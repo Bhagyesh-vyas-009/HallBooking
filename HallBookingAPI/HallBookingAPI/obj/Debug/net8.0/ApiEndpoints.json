@@ -859,6 +859,11 @@
         "Name": "ImageID",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "imagePath",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
